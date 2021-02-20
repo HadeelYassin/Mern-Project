@@ -1,9 +1,10 @@
 import React from 'react'
+import Logo from '../images/logo.png'
 
 const Header = () => {
     return (
         <div>
-            <h1>Shatha</h1>
+            <img src={Logo} alt="logo"/>
         </div>
     )
 }
