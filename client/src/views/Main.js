@@ -3,7 +3,7 @@ import AdminLogin from '../components/AdminLogin';
 export  default  () => {
     return (
         <div>
-                <AdminLogin/>
+            <AdminLogin/>
         </div>
     )
 }
