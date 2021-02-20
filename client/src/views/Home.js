@@ -3,10 +3,14 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 const Home = () => {
+    const Style={
+        backgroundColor: 'black'
+    }
     return (
-        <div>
-            <Header/>
+        <div style={Style}>
+            <Header />
             <Footer/>
+            
         </div>
     )
 }
