@@ -1,15 +1,16 @@
 import React from 'react'
-import { colors, Paper } from '@material-ui/core';
 import { Card } from '@material-ui/core';
+// import {FacebookIcon} from '@material-ui/icons/Facebook';
+// import TwitterIcon from '@material-ui/icons/Twitter';
+// import InstagramIcon from '@material-ui/icons/Instagram';
 
 
 const Footer = () => {
     
     return (
         <div>
-            <Card style={{backgroundColor:"#161c27", color:'whitesmoke', fontSize:'12px'}} elevation={5}>
-                <p>© 2021 Movie Time</p>
-                
+            <Card style={{backgroundColor:"#21262d", color:'whitesmoke', fontSize:'12px'}} elevation={3}>
+                <p>Movie Time © 2021</p>
             </Card>
         </div>
     )
