@@ -1,11 +1,16 @@
-import logo from './logo.svg';
+import { Router } from '@reach/router';
+import Main from './views/Main';
 import './App.css';
 import BuyTicketsComponent from './components/BuyTicketsComponent'
 
 function App() {
   return (
     <div className="App">
-   <BuyTicketsComponent/>
+      <Router>
+        <Main path="/admin"/>
+        <AdminAdd path="/login/hi"/>
+        <BuyTicketsComponent path="/new"/>
+      </Router>
     </div>
   );
 }
