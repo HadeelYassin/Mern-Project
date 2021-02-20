@@ -1,9 +1,10 @@
 import React from 'react'
+import { Button } from '@material-ui/core';
 
 const BuyTicketsComponent = () => {
     return (
         <div>
-            <p>hello</p>
+            <Button variant="outlined" color="primary" href="#outlined-buttons">Link</Button>
         </div>
     )
 }
