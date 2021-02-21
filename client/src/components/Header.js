@@ -76,7 +76,7 @@ const Header = () => {
         <div className={classes.root}>
             <Navbar style={style} light expand="md" className={classes[navRef.current]}>
             <img style= {imageStyle} src={Logo} alt="logo"/>
-        <NavbarBrand  href="/"  style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
+        <NavbarBrand  href="/"  style={{color:'#e60808'}}>MovieTime</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -90,7 +90,7 @@ const Header = () => {
               <DropdownToggle nav caret  style={{color:'whitesmoke'}}>
                 Categories
               </DropdownToggle>
-              <DropdownMenu right  >
+              <DropdownMenu right >
                 <DropdownItem >
                   Comedy
                 </DropdownItem>
