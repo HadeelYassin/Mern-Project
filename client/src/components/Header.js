@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import Button from '@material-ui/core/Button';
 import Logo from '../images/logo.png'
 import {
     Collapse,
@@ -8,12 +9,22 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
   } from 'reactstrap';
 import { makeStyles } from '@material-ui/core';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+
+const options = [
+  'None',
+  'Comedy',
+  'Action',
+  'Drama',
+  'Horror',
+  'Sci-Fi',
+  'Adventures',
+];
+
+const ITEM_HEIGHT = 48;
 
 
   
@@ -39,6 +50,16 @@ import { makeStyles } from '@material-ui/core';
 
 const Header = () => {
     const classes = useStyles();
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+  
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
 
     const [navBackground, setNavBackground] = useState('appBarTransparent')
     const navRef = React.useRef()
@@ -69,7 +90,8 @@ const Header = () => {
         transition: '1s ease',
         position:'fixed',
         overflow: 'hidden',
-        top:'0' 
+        top:'0' ,
+        width:'100%'
     }
     const [isOpen, setIsOpen] = useState(false);
 
@@ -88,22 +110,34 @@ const Header = () => {
             <NavItem>
               <NavLink href="#" style={{color:'whitesmoke'}}>Contact</NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret  style={{color:'whitesmoke'}}>
-                Categories
-              </DropdownToggle>
-              <DropdownMenu right  >
-                <DropdownItem >
-                  Comedy
-                </DropdownItem>
-                <DropdownItem>
-                  Action
-                </DropdownItem>
-                <DropdownItem>
-                 Drama
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            <Button
+        aria-label="more"
+        aria-controls="long-menu"
+        aria-haspopup="true"
+        onClick={handleClick}
+        style={{color:'whitesmoke'}}
+      >
+        Categories
+      </Button>
+      <Menu
+        id="long-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          style: {
+            maxHeight: ITEM_HEIGHT * 4.5,
+            width: '20ch',
+          },
+        }}
+      >
+        {options.map((option) => (
+          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+            {option}
+          </MenuItem>
+        ))}
+      </Menu>
           </Nav>
         </Collapse>
       </Navbar>

@@ -19,17 +19,17 @@ import { makeStyles } from '@material-ui/core';
 
   
   const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-        color: 'black'
-    },
-    title: {
-        flexGrow: 1,
-        color: 'black'
-    },
+    // root: {
+    //     flexGrow: 1,
+    // },
+    // menuButton: {
+    //     marginRight: theme.spacing(2),
+    //     color: 'black'
+    // },
+    // title: {
+    //     flexGrow: 1,
+    //     color: 'black'
+    // },
     appBarTransparent: {
         backgroundColor: 'transparent'
     },
@@ -68,27 +68,32 @@ const HeaderAdmin = () => {
     }
     const style={
         // backgroundColor:'transparent',
-        transition: '1s ease',
+        transition: '2s ease',
         position:'fixed',
         overflow: 'hidden',
-        top:'0' 
+        top:'0' ,
+        width:'100%'
     }
     const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
 
-  const toggle = () => setIsOpen(!isOpen);
+    
     return (
-        <div className={classes.root}>
-        <Navbar className={classes.appBarSolid} style={style} light expand="md" className={classes[navRef.current]}>
-        <img style= {imageStyle} src={Logo} alt="logo"/>
-    <NavbarBrand  href="/"  style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
-    <NavbarToggler onClick={toggle} />
-    <Collapse isOpen={isOpen} navbar>
+      <div className={classes.root}>
+    <Navbar className={classes.appBarSolid} style={style} light expand="md" className={classes[navRef.current]}>
+      <img style= {imageStyle} src={Logo} alt="logo"/>
+      <NavbarBrand  href="/"  style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
       <Nav className="mr-auto" navbar>
         <NavItem>
           <NavLink href="/admin/movies"  style={{color:'whitesmoke'}}>Add New</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/admin/info"  style={{color:'whitesmoke'}}>TicketsBuyers</NavLink>
+          <NavLink href="/admin/info"  style={{color:'whitesmoke'}}>View Tickets</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/admin/info"  style={{color:'whitesmoke', float:'right'}}>Log Out</NavLink>
         </NavItem>
       </Nav>
     </Collapse>
