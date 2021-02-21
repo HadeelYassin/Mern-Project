@@ -19,11 +19,20 @@ const Movies = ({ poster_path, title, vote_average, overview, video, release_dat
 
       </div>
       <div className="overview">
-        <Button color="primary">Buy Now!</Button>
-        <p>{overview}</p>
         {/* {video} */}
+        <div>
+          <iframe src="https://www.youtube.com/embed/6ZfuNTqbHE8?autoplay=1&mute=1" height="100%" width="100%" title="W3Schools Free Online Web Tutorials"></iframe>
+          <p>{overview}</p>
+        </div>
+        <button style={{backgroundColor:"#f9ff4b", border:'none'}}>Book A Ticket </button>
+        {/* <Button variant="contained" color="primary" disableElevation>
+          Buy Now!!
+        </Button> */}
+
       </div>
     </div>
+
+
 
   );
 };

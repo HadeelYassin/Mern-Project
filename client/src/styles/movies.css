@@ -30,7 +30,7 @@ main {
     overflow: hidden;
     position: relative;
     margin: 1rem;
-    width: 290px;
+    width: 22%;
     
 }
 
@@ -41,6 +41,8 @@ main {
 .movie-container {
     display: flex;
     flex-wrap: wrap;
+    /* align-items: center;  */
+    justify-content: center; 
     }
 
 .movie-info {
@@ -54,8 +56,10 @@ main {
     letter-spacing: 0.5px;
 }
 
-.movie-info h3 {
+.movie-info h4 {
     margin: 0;
+    font-size: 16px;
+    font-family: cursive;
 }
 
 .movie-info span {
