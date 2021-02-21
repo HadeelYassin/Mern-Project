@@ -4,7 +4,9 @@ import Header from '../components/Header'
 
 const Home = () => {
     const Style={
-        backgroundColor: '#161b22'
+        backgroundColor: '#161b22',
+        width:"100%"
+        
     }
     return (
         <div style={Style}>

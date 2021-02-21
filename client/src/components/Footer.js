@@ -9,7 +9,7 @@ const Footer = () => {
     
     return (
         <div>
-            <Card style={{backgroundColor:"#21262d", color:'whitesmoke', fontSize:'12px'}} elevation={3}>
+            <Card style={{backgroundColor:"#21262d", color:'whitesmoke', fontSize:'12px',position:'bottom',bottom:0}} elevation={3}>
                 <p style={{marginBottom: 0}}>Movie Time © 2021</p>
                 <FacebookIcon style={{ color: '#0168e4' }}/>
                 <TwitterIcon style={{ color: '#1093f3' }}/>

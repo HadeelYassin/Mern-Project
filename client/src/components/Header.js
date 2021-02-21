@@ -14,6 +14,8 @@ import {
     DropdownItem,
   } from 'reactstrap';
 import { makeStyles } from '@material-ui/core';
+
+
   
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,7 +30,7 @@ import { makeStyles } from '@material-ui/core';
         color: 'black'
     },
     appBarTransparent: {
-        backgroundColor: 'rgba(67, 129, 168,0.5)'
+        backgroundColor: 'transparent'
     },
     appBarSolid: {
         backgroundColor: 'black'
@@ -63,7 +65,7 @@ const Header = () => {
         height:'70px'
     }
     const style={
-        backgroundColor:'transparent',
+        // backgroundColor:'transparent',
         transition: '1s ease',
         position:'fixed',
         overflow: 'hidden',
@@ -74,9 +76,9 @@ const Header = () => {
   const toggle = () => setIsOpen(!isOpen);
     return (
         <div className={classes.root}>
-            <Navbar style={style} light expand="md" className={classes[navRef.current]}>
+            <Navbar className={classes.appBarTransparent} style={style} light expand="md" className={classes[navRef.current]}>
             <img style= {imageStyle} src={Logo} alt="logo"/>
-        <NavbarBrand  href="/"  style={{color:'#e60808'}}>MovieTime</NavbarBrand>
+        <NavbarBrand  href="/"  style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -90,7 +92,7 @@ const Header = () => {
               <DropdownToggle nav caret  style={{color:'whitesmoke'}}>
                 Categories
               </DropdownToggle>
-              <DropdownMenu right >
+              <DropdownMenu right  >
                 <DropdownItem >
                   Comedy
                 </DropdownItem>

@@ -1,28 +1,24 @@
-
 import React from 'react'
+import AddMovie from '../components/AddMovie'
 import Footer from '../components/Footer'
 import HeaderAdmin from '../components/HeaderAdmin'
-import UsersTable from '../components/UsersTable'
 
-
-const BuyersList = () => {
+const MoviesAdmin = () => {
     const Style={
         backgroundColor: '#161b22',
         width:"100%"
     }
     return (
         <div style={Style} >
-            <HeaderAdmin />
+            <HeaderAdmin/>
+            <AddMovie/>
             <br/>
             <br/>
             <br/>
             <br/>
-            <br/>
-            
-            <UsersTable />
             <Footer/>
         </div>
     )
 }
 
-export default BuyersList
+export default MoviesAdmin
