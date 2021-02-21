@@ -5,6 +5,10 @@ import BuyTicketsComponent from './components/BuyTicketsComponent'
 import AdminAdd from './components/AdminAdd'
 import Home from './views/Home';
 import BuyersList from './views/BuyersList';
+import './styles/movies.css';
+import Movies from './components/Movies'
+import React, { useState, useEffect } from 'react';
+
 function App() {
   
   return (
@@ -14,6 +18,7 @@ function App() {
         <AdminAdd path="/login/hi"/>
         <BuyTicketsComponent path="/new"/>
         <Home path="/"/>
+        <Mais path="mais"/>
         <BuyersList path="/info"/>
       </Router>
     </div>
