@@ -10,13 +10,14 @@ const Movies = ({ poster_path, title, vote_average, overview, video, release_dat
 
   return (
 
-
     <div className="movie" >
-      <img src={IMGPATH + poster_path} alt={title} />
-      <div class="movie-info">
+      {/* <div class="movie-info">
         <h4>{title}</h4>
-        <h6>{"category"}</h6>
-
+      </div> */}
+      <img src={IMGPATH + poster_path} alt={title} />
+      <div class="movie-date">
+        <h4>{"FRIDAY, FEBRUARY 12"}</h4>
+        <h4>{"10:00 am "}</h4>
       </div>
       <div className="overview">
         <Button color="primary">Buy Now!</Button>
@@ -24,7 +25,6 @@ const Movies = ({ poster_path, title, vote_average, overview, video, release_dat
         {/* {video} */}
       </div>
     </div>
-
   );
 };
 

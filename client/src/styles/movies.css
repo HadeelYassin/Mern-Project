@@ -6,8 +6,7 @@
 
 body {
     background-color: #22254b;
-    font-family: "Poppins", sans-serif;
-    margin: 0;
+    font-family: "Poppins", sans-serif; 
 }
 
 header {
@@ -30,8 +29,7 @@ main {
     overflow: hidden;
     position: relative;
     margin: 1rem;
-    width: 290px;
-    
+    width: 22%;
 }
 
 .movie img {
@@ -41,39 +39,30 @@ main {
 .movie-container {
     display: flex;
     flex-wrap: wrap;
-    }
+    justify-content: center
+}
 
 .movie-info {
-    color: #eee;
+    color: white;
     display: flex;
+    text-align: center;
     align-items: center;
     justify-content: space-between;
-    /* padding: 0.5rem 1rem 1rem; */
     padding-right: 0.5rem;
     padding-left:  0.5rem;
     letter-spacing: 0.5px;
+    height: 10%;
+}
+.movie-date {
+    color: white;
+    height: min-content;
 }
 
-.movie-info h3 {
+.movie-info, .movie-date h4 {
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Prata', serif;
     margin: 0;
-}
-
-.movie-info span {
-    background-color: #22254b;
-    border-radius: 3px;
-    font-weight: bold;
-    /* padding: 0.25rem 0.5rem; */
-}
-.movie-info span.green {
-    color: rgb(39, 189, 39);
-}
-
-.movie-info span.orange {
-    color: orange;
-}
-
-.movie-info span.red {
-    color: rgb(189, 42, 42);
 }
 
 .overview {
