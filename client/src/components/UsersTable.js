@@ -90,7 +90,7 @@ const UsersTable = () => {
       <TextField
           id="standard-select-currency"
           select
-          label="Movie"
+          label="Select"
           value={currency}
           onChange={handleChange}
         >

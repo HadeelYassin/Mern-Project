@@ -1,13 +1,6 @@
-import './styles/movies.css';
-import { Router } from '@reach/router';
-import Main from './views/Main';
-import BuyTicketsComponent from './components/BuyTicketsComponent'
-import AdminAdd from './components/AdminAdd'
-import Home from './views/Home';
-import Movies from './components/Movies'
-import './styles/movie.css';
+import '../styles/movies.css';
+import Movies from './Movies'
 import React, { useState, useEffect } from 'react';
-import React from 'react'
 
 
 const APIURL =
@@ -16,7 +9,7 @@ const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 // const SEARCHAPI =
 //     "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
 
-const Mais = () =>{
+const MoviesList = () =>{
 	const [movies, setMovies] = useState([]);
 
 	useEffect(() => {
@@ -35,4 +28,4 @@ const Mais = () =>{
 	);
 }
 
-export default App;
+export default MoviesList;
