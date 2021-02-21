@@ -7,27 +7,14 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import Container from '@material-ui/core/Container';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  },
-];
+
+
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -52,55 +39,63 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('Amal Ahmad', 5999999, 6.0),
+  createData('Basim Freij', 5999999, 9.0),
+  createData('Diana Bast', 5999999, 16.0),
+  createData('Ekram Suliman',5999999, 3),
+  createData('Fatima Hasan', 5999999, 16.0),
+  createData('Fadi Hasan', 5999999, 6.0),
+  createData('Hasan Mhesen', 5999999, 9.0),
+  createData('Eclair', 5999999, 16.0),
+  createData('Cupcake', 5999999, 3),
+  createData('Gingerbread', 5999999, 16.0),
 ];
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
+  // root: {
+  //   '& .MuiTextField-root': {
+  //     margin: theme.spacing(1),
+  //     width: '25ch',
+  //   },
+  // },
   table: {
     minWidth: 500,
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 300,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
   },
 }));
   
 
 const UsersTable = () => {
     const classes = useStyles();
-    const [currency, setCurrency] = React.useState('EUR');
+    const [age, setAge] = React.useState('');
 
-    const handleChange = (event) => {
-      setCurrency(event.target.value);
-    };
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
     return (
       <div>
-      <TextField
-          id="standard-select-currency"
-          select
-          label="Select"
-          value={currency}
+      <FormControl className={classes.formControl}>
+        <InputLabel id="demo-simple-select-label">Movies</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={age}
           onChange={handleChange}
         >
-          {currencies.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        
+          <MenuItem value={'Avengers'}>Avengers</MenuItem>
+          <MenuItem value={'Quiet Place'}>Quiet Place</MenuItem>
+          <MenuItem value={'Purge'}>Purge</MenuItem>
+        </Select>
+      </FormControl>
+        <Container  fixed maxWidth="md">
         <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead >
@@ -123,6 +118,7 @@ const UsersTable = () => {
         </TableBody>
       </Table>
     </TableContainer>
+    </Container>
     </div>
     )
 }

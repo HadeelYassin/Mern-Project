@@ -7,7 +7,7 @@ import UsersTable from '../components/UsersTable'
 
 const BuyersList = () => {
     const Style={
-        backgroundColor: '#161b22',
+        backgroundColor: '#8c8787',
         width:"100%"
     }
     return (
@@ -18,7 +18,6 @@ const BuyersList = () => {
             <br/>
             <br/>
             <br/>
-            
             <UsersTable />
             <Footer/>
         </div>

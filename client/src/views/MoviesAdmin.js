@@ -5,17 +5,21 @@ import HeaderAdmin from '../components/HeaderAdmin'
 
 const MoviesAdmin = () => {
     const Style={
-        backgroundColor: '#161b22',
+        backgroundColor: '#8c8787',
         width:"100%"
     }
     return (
         <div style={Style} >
-            <HeaderAdmin/>
+            <br/>
+            <br/>
+            <br/>
+            <br/><br/>
+            <br/>
+            <br/>
+            <br/>
             <AddMovie/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            <HeaderAdmin/>
+            
             <Footer/>
         </div>
     )

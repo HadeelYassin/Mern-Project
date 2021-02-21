@@ -138,6 +138,9 @@ const Header = () => {
           </MenuItem>
         ))}
       </Menu>
+      <NavItem>
+              <NavLink href="/admin" style={{color:'whitesmoke'}}>Login</NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>

@@ -3,15 +3,15 @@ import { Card } from '@material-ui/core';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
+
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary">
+    <Typography variant="body2" color="inherit">
       {'Copyright © '}
       <Link color="inherit" href="/">
       Movie Time
@@ -35,8 +35,7 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     padding: theme.spacing(3, 2),
      marginTop: 'auto',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+    backgroundColor:'transparent'
   },
 }));
 
@@ -49,9 +48,9 @@ const Footer = () => {
       <footer className={classes.footer}>
         <Container maxWidth="sm">
             <Copyright />
-            <FacebookIcon style={{ color: '#0168e4' }}/>
-            <TwitterIcon style={{ color: '#1093f3' }}/>
-            <InstagramIcon color="pink"/>
+            <FacebookIcon style={{ color: 'white' }}/>
+            <TwitterIcon style={{ color: 'white' }}/>
+            <InstagramIcon style={{ color: 'white' }}/>
         </Container>
       </footer>
     </div>

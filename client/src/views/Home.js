@@ -5,14 +5,14 @@ import Video from '../components/Video';
 import MoviesList from '../components/MoviesList';
 const Home = () => {
     const Style={
-        backgroundColor: '		#202020'
+        backgroundColor: '#202020'
     }
     return (
         
         <div style={Style}>
-            <Header/>
             <Video/>
             <MoviesList/>
+            <Header/>
             <Footer/>
         </div>
     )
