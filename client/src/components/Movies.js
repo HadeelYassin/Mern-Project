@@ -10,21 +10,28 @@ const Movies = ({ poster_path, title, vote_average, overview, video, release_dat
 
   return (
 
-
     <div className="movie" >
-      <img src={IMGPATH + poster_path} alt={title} />
-      <div class="movie-info">
+      {/* <div class="movie-info">
         <h4>{title}</h4>
-        <h6>{"category"}</h6>
-
+      </div> */}
+      <img src={IMGPATH + poster_path} alt={title} />
+      <div class="movie-date">
+        <h4>{"FRIDAY, FEBRUARY 12"}</h4>
+        <h4>{"10:00 am "}</h4>
       </div>
       <div className="overview">
-        <Button color="primary">Buy Now!</Button>
-        <p>{overview}</p>
         {/* {video} */}
+        <div>
+          <iframe src="https://www.youtube.com/embed/6ZfuNTqbHE8?autoplay=1&mute=1" height="100%" width="100%" title="W3Schools Free Online Web Tutorials"></iframe>
+          <p>{overview}</p>
+        </div>
+        <button style={{backgroundColor:"#f9ff4b", border:'none'}}>Book A Ticket </button>
+        {/* <Button variant="contained" color="primary" disableElevation>
+          Buy Now!!
+        </Button> */}
+
       </div>
     </div>
-
   );
 };
 

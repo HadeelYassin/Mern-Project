@@ -61,6 +61,10 @@ const useStyles = makeStyles({
         fontDisplay: 'swap',
         fontWeight: 400,
         width:'70%',
+    },
+    input:{
+        background: 'rgba(0, 0, 0, 0.5)',
+        
     }
    
 });
@@ -98,18 +102,21 @@ export default function BuyTicketsComponent() {
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} sm={6}>
                                         <TextField
+                                        className={classes.input}
                                             autoComplete="fname"
                                             name="firstName"
-                                            variant="outlined"
+                                             variant="outlined"
                                             required
                                             fullWidth
                                             id="firstName"
+                                            placeholder="First Nmae"
                                             label="First Name"
                                             autoFocus
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
                                         <TextField
+                                        className={classes.input}
                                             variant="outlined"
                                             required
                                             fullWidth
@@ -121,6 +128,7 @@ export default function BuyTicketsComponent() {
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
+                                        className={classes.input}
                                             variant="outlined"
                                             required
                                             fullWidth
@@ -134,6 +142,7 @@ export default function BuyTicketsComponent() {
 
 
                                         <TextField
+                                        className={classes.input}
                                             id="outlined-number"
                                             fullWidth
                                             label="Hurry up ! There is still available Seats for you"

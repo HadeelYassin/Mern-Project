@@ -2,13 +2,13 @@ import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Video from '../components/Video';
+
 const Home = () => {
     const Style={
-        backgroundColor: '#161b22'
+        backgroundColor: '#202020'
     }
     return (
-        <div>
-
+        
         <div style={Style}>
         <Video/>
             <div>
@@ -45,8 +45,6 @@ const Home = () => {
                 <p>Movie Time © 2021</p>
                 </div>
             <Footer/>
-            
-        </div>
         </div>
     )
 }

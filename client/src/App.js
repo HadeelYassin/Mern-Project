@@ -7,7 +7,6 @@ import Home from './views/Home';
 import BuyersList from './views/BuyersList';
 import './styles/movies.css';
 
-
 function App() {
   
   return (

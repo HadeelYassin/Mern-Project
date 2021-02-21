@@ -62,7 +62,7 @@ export default function LoginForm() {
                 </FormControl>
                 <br/>
                
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained" color="Secondary">
                 <Link to={"/login" +  "/hi"}>
                 Login
                 </Link>
