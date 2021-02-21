@@ -10,10 +10,13 @@ const Home = () => {
         <div>
 
         <div style={Style}>
-            <Header/>
+        <Video/>
             <div>
-            <Video/>
-        </div>
+            <Header/>
+            </div>
+        
+            
+        
         <div>
             <p>Movie Time © 2021</p>
                 <p>Movie Time © 2021</p>
