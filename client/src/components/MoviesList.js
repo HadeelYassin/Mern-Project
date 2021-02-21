@@ -1,7 +1,6 @@
-import './styles/movies.css';
-import Movies from './components/Movies'
+import '../styles/movies.css';
+import Movies from './Movies'
 import React, { useState, useEffect } from 'react';
-import React from 'react'
 
 
 const APIURL =
