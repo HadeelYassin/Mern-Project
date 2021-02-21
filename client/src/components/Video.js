@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import '../styles/styles.css';
 import yt1s from './yt1s.mp4';
 
 //import ReactPlayer from "react-player"
