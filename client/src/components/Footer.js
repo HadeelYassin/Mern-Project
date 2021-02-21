@@ -10,13 +10,12 @@ const Footer = () => {
     return (
         <div>
             <Card style={{backgroundColor:"#21262d", color:'whitesmoke', fontSize:'12px'}} elevation={3}>
-                <p>Movie Time © 2021</p>
-                <FacebookIcon color="primary"/>
-                <TwitterIcon/>
-                <InstagramIcon olor="secondary"/>
+                <p style={{marginBottom: 0}}>Movie Time © 2021</p>
+                <FacebookIcon style={{ color: '#0168e4' }}/>
+                <TwitterIcon style={{ color: '#1093f3' }}/>
+                <InstagramIcon olor="pink"/>
             </Card>
         </div>
     )
 }
-
 export default Footer
