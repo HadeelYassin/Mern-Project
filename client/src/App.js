@@ -18,7 +18,6 @@ function App() {
         <AdminAdd path="/login/hi"/>
         <BuyTicketsComponent path="/new"/>
         <Home path="/"/>
-        <MoviesList path="mais"/>
         <BuyersList path="/info"/>
       </Router>
     </div>
