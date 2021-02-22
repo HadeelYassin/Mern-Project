@@ -4,9 +4,10 @@ import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Grid from '@material-ui/core/Grid';
+// import TextField from '@material-ui/core/TextField';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,10 +24,16 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 300,
+  },
 }));
-
-
-
 const options = [
   'None',
   'Comedy',
@@ -37,51 +44,67 @@ const options = [
   'Adventures',
 ];
 
-
 const AddMovie = () => {
-  
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
+  const [category, setCategory] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setCategory(event.target.value);
   };
-
 
   return (
     <div className="containerr">
-      <Container  fixed maxWidth="md">
+      <Container  fixed maxWidth="sm" >
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Name" />
-      <TextField
-          id="standard-multiline-flexible"
-          label="Multiline"
-          multiline
-          rowsMax={8}
-        />
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Category</InputLabel>
+    <Grid item xs={12} ><TextField id="standard-basic" label="Name" fullWidth className={classes.textField}/></Grid>
+    <Grid item xs={12} sm={6}><InputLabel id="demo-simple-select-label">Category</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={category}
           onChange={handleChange}
+          fullWidth
+          className={classes.textField}
         >
           {options.map((option) => (
-          <MenuItem value={option}>
+          <MenuItem value={option} fullWidth  className={classes.textField}>
             {option}
-          </MenuItem>
+          </MenuItem >
         ))}
-        </Select>
-      </FormControl>
-      <TextField
+        </Select></Grid>
+    <Grid item xs={16} ><TextField
+          id="standard-multiline-flexible"
+          label="Description"
+          multiline
+          fullWidth
+          rowsMax={10}
+          className={classes.textField}
+        /></Grid>
+      {/* <Grid item xs={16} ><FormControl className={classes.formControl}> */}
+      
+      {/* </FormControl></Grid> */}
+      <Grid item xs={12} ><TextField
           id="standard-number"
           label="Ticket Price"
           type="number"
           InputLabelProps={{
             shrink: true,
           }}
-        />
+          fullWidth
+          className={classes.textField}
+        /></Grid>
+        <Grid item xs={12} ><TextField id="standard-basic" label="Poster url" fullWidth className={classes.textField}/></Grid>
+        <Grid item xs={12} ><TextField id="standard-basic" label="Trailer url" fullWidth className={classes.textField}/></Grid>
+        <Grid item xs={12} ><TextField
+        id="datetime-local"
+        label="Next appointment"
+        type="datetime-local"
+        defaultValue="2017-05-24T10:30"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      /></Grid>
     </form>
     </Container>
     </div>

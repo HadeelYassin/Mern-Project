@@ -12,13 +12,14 @@ import Container from '@material-ui/core/Container';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Checkbox from '@material-ui/core/Checkbox';
 
 
 
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: theme.palette.error.dark,
     color: theme.palette.common.white,
   },
   body: {
@@ -34,37 +35,37 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(name, phone, ticket,paid) {
+  return { name, phone, ticket ,paid};
 }
 
 const rows = [
-  createData('Amal Ahmad', 5999999, 6.0),
-  createData('Basim Freij', 5999999, 9.0),
-  createData('Diana Bast', 5999999, 16.0),
-  createData('Ekram Suliman',5999999, 3),
-  createData('Fatima Hasan', 5999999, 16.0),
-  createData('Fadi Hasan', 5999999, 6.0),
-  createData('Hasan Mhesen', 5999999, 9.0),
-  createData('Eclair', 5999999, 16.0),
-  createData('Cupcake', 5999999, 3),
-  createData('Gingerbread', 5999999, 16.0),
+  createData('Amal Ahmad', 5999999, 6.0,false),
+  createData('Basim Freij', 5999999, 9.0,false),
+  createData('Diana Bast', 5999999, 16.0,false),
+  createData('Ekram Suliman',5999999, 3,false),
+  createData('Fatima Hasan', 5999999, 16.0,false),
+  createData('Fadi Hasan', 5999999, 6.0,false),
+  createData('Hasan Mhesen', 5999999, 9.0,false),
+  createData('Eclair', 5999999, 16.0,false),
+  createData('Cupcake', 5999999, 3,false),
+  createData('Gingerbread', 5999999, 16.0,false),
 ];
 
 
 const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   '& .MuiTextField-root': {
-  //     margin: theme.spacing(1),
-  //     width: '25ch',
-  //   },
-  // },
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
   table: {
     minWidth: 500,
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 300,
+    minWidth: 200,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -74,20 +75,25 @@ const useStyles = makeStyles((theme) => ({
 
 const UsersTable = () => {
     const classes = useStyles();
-    const [age, setAge] = React.useState('');
+    const [movie, setMovie] = React.useState('');
+    const [checked, setChecked] = React.useState(rows.paid);
+
+  const handleChange1 = (event) => {
+    setChecked(event.target.checked);
+  };
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setMovie(event.target.value);
   };
 
     return (
       <div>
-      <FormControl className={classes.formControl}>
+      <FormControl className={classes.formControl} >
         <InputLabel id="demo-simple-select-label">Movies</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={movie}
           onChange={handleChange}
         >
           <MenuItem value={'Avengers'}>Avengers</MenuItem>
@@ -103,6 +109,7 @@ const UsersTable = () => {
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell align="center">Phone Number</StyledTableCell>
             <StyledTableCell align="center"># Tickets&nbsp;</StyledTableCell>
+            <StyledTableCell align="center">Paid&nbsp;</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -111,8 +118,14 @@ const UsersTable = () => {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="center">{row.calories}</StyledTableCell>
-              <StyledTableCell align="center">{row.fat}</StyledTableCell>
+              <StyledTableCell align="center">{row.phone}</StyledTableCell>
+              <StyledTableCell align="center">{row.ticket}</StyledTableCell>
+              <Checkbox
+              style={{color:'red'}}
+                checked={checked}
+                onChange={handleChange1}
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
             </StyledTableRow>
           ))}
         </TableBody>

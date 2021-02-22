@@ -25,21 +25,8 @@ const options = [
 ];
 
 const ITEM_HEIGHT = 48;
-
-
   
   const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-        color: 'black'
-    },
-    title: {
-        flexGrow: 1,
-        color: 'black'
-    },
     appBarTransparent: {
         backgroundColor: 'transparent'
     },
@@ -138,9 +125,9 @@ const Header = () => {
           </MenuItem>
         ))}
       </Menu>
-      <NavItem>
+      {/* <NavItem>
               <NavLink href="/admin" style={{color:'whitesmoke'}}>Login</NavLink>
-            </NavItem>
+            </NavItem> */}
           </Nav>
         </Collapse>
       </Navbar>

@@ -1,4 +1,3 @@
-
 import React from 'react'
 import Footer from '../components/Footer'
 import HeaderAdmin from '../components/HeaderAdmin'
@@ -12,13 +11,13 @@ const BuyersList = () => {
     }
     return (
         <div style={Style} >
-            <HeaderAdmin />
             <br/>
             <br/>
             <br/>
             <br/>
             <br/>
             <UsersTable />
+            <HeaderAdmin />
             <Footer/>
         </div>
     )
