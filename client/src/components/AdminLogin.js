@@ -1,5 +1,5 @@
 import React, {  useState } from 'react'
-import { Link } from '@reach/router';
+import { Link,navigate } from '@reach/router';
 
 import axios from 'axios';
 
@@ -32,9 +32,15 @@ export default function LoginForm() {
             e.preventDefault();
             axios.post('http://localhost:8000/api/register', {
             userName,
-            password
+            password,
             })
-                .then(res=>console.log(res)) // If successful, do something with the response. 
+                .then(res=> {if(res.data.errors == null)
+                    { navigate('/login/hi') }else{
+                        console.log(res.data.errors);
+                    }
+
+                }
+                ) // If successful, do something with the response. 
                 .catch(err=>{
                     const errorResponse = err.response.data.errors; // Get the errors from err.response.data
                     const errorArr = []; // Define a temp error array to push the messages in
@@ -63,9 +69,7 @@ export default function LoginForm() {
                 <br/>
                
                 <Button type="submit" variant="contained" color="Secondary">
-                <Link to={"/login" +  "/hi"}>
-                Login
-                </Link>
+                    Login
                 </Button>
             </form>
         </Paper>

@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Video from '../components/Video';
-
+import MoviesList from '../components/MoviesList';
 const Home = () => {
     const Style={
         backgroundColor: '#202020'
@@ -16,34 +16,8 @@ const Home = () => {
             </div>
         
             
-        
-        <div>
-            <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                <p>Movie Time © 2021</p>
-                </div>
+       
+        <MoviesList/>
             <Footer/>
         </div>
     )
