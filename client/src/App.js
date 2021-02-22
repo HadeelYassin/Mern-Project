@@ -6,6 +6,8 @@ import AdminAdd from './components/AdminAdd'
 import Home from './views/Home';
 import BuyersList from './views/BuyersList';
 import './styles/movies.css';
+import React, { useState, useEffect } from 'react';
+import MoviesAdmin from './views/MoviesAdmin'
 
 function App() {
   
@@ -16,8 +18,8 @@ function App() {
         <AdminAdd path="/login/hi"/>
         <BuyTicketsComponent path="/new"/>
         <Home path="/"/>
-        
-        <BuyersList path="/info"/>
+        <BuyersList path="/admin/info"/>
+        <MoviesAdmin path="/admin/movies"/>
       </Router>
     </div>
   );
