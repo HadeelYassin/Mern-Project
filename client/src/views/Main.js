@@ -1,9 +1,11 @@
 import React from 'react'
-import Login from '../components/Login';
+import AdminLogin from '../components/AdminLogin';
+import Header from '../components/Header';
 export  default  () => {
+    
     return (
-        <div>
-            <Login/>
+        <div >
+            <AdminLogin/>
         </div>
     )
 }

@@ -1,23 +1,23 @@
 
 import React from 'react'
 import Footer from '../components/Footer'
-import Header from '../components/Header'
+import HeaderAdmin from '../components/HeaderAdmin'
 import UsersTable from '../components/UsersTable'
 
 
 const BuyersList = () => {
     const Style={
-        backgroundColor: '#161b22'
+        backgroundColor: '#8c8787',
+        width:"100%"
     }
     return (
         <div style={Style} >
-            <Header />
+            <HeaderAdmin />
             <br/>
             <br/>
             <br/>
             <br/>
             <br/>
-            
             <UsersTable />
             <Footer/>
         </div>
