@@ -9,11 +9,11 @@ const Footer = () => {
     
     return (
         <div>
-            <Card style={{backgroundColor:"#21262d", color:'whitesmoke', fontSize:'12px'}} elevation={3}>
+            <Card style={{background:"transparent", color:'whitesmoke', fontSize:'16px'}} elevation={3}>
                 <p style={{marginBottom: 0}}>Movie Time © 2021</p>
                 <FacebookIcon style={{ color: '#0168e4' }}/>
                 <TwitterIcon style={{ color: '#1093f3' }}/>
-                <InstagramIcon olor="pink"/>
+                <InstagramIcon color="pink"/>
             </Card>
         </div>
     )
