@@ -7,7 +7,7 @@ import Home from './views/Home';
 import BuyersList from './views/BuyersList';
 import './styles/movies.css';
 import React, { useState, useEffect } from 'react';
-import MoviesList from './components/MoviesList'
+import MoviesAdmin from './views/MoviesAdmin'
 
 function App() {
   
@@ -18,7 +18,12 @@ function App() {
         <AdminAdd path="/login/hi"/>
         <BuyTicketsComponent path="/new"/>
         <Home path="/"/>
+<<<<<<< HEAD
         <BuyersList path="/info"/>
+=======
+        <BuyersList path="/admin/info"/>
+        <MoviesAdmin path="/admin/movies"/>
+>>>>>>> 5282625961909143fd61cde2862c4636c255e922
       </Router>
     </div>
   );

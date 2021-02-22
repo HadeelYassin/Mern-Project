@@ -1,7 +1,7 @@
 .t {
-        position: absolute;
-        bottom: -119px;
-    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 144px;
+    background: rgba(0, 0, 0, 0);
     color: #f1f1f1;
     width: 100%;
     padding:100px;
@@ -28,18 +28,13 @@
     font-family: Arial;
     font-size: 17px;
   }
-
-
-  #myDIV {
-    position: absolute;
-    width: 200px;
-    height: 150px;
-    background-color: white;
-    border: 1px solid black;
-    animation: mymove 5s infinite;
-  }
-  
-  
-  @keyframes mymove {
-    50% {opacity: 0;}
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
   }
