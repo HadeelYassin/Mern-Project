@@ -28,3 +28,18 @@
     font-family: Arial;
     font-size: 17px;
   }
+
+
+  #myDIV {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    background-color: white;
+    border: 1px solid black;
+    animation: mymove 5s infinite;
+  }
+  
+  
+  @keyframes mymove {
+    50% {opacity: 0;}
+  }
