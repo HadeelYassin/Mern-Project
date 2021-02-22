@@ -45,11 +45,7 @@ export default  () => {
            </Carousel>
            
            
-            <div className="t">
-            
-             
-
-            </div>
+         
            </div> 
       </div>
         

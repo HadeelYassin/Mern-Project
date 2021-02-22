@@ -4,18 +4,12 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: #22254b;
-    font-family: "Poppins", sans-serif; 
-}
-
 header {
     background-color: #373b69;
     display: flex;
     justify-content: flex-end;
     padding: 1rem;
 }
-
 
 main {
     display: flex;
@@ -29,7 +23,7 @@ main {
     overflow: hidden;
     position: relative;
     margin: 1rem;
-    width: 22%;
+    width: 295px;
     
 }
 
@@ -40,9 +34,8 @@ main {
 .movie-container {
     display: flex;
     flex-wrap: wrap;
-    /* align-items: center;  */
     justify-content: center; 
-    }
+}
 
 .movie-info {
     color: white;
@@ -66,12 +59,14 @@ main {
     text-align: center;
     font-size: 22px;
     font-family: 'Prata', serif;
-    margin: 0;
+    margin-top: 10px;
 }
 
 .overview {
     background: rgba(0, 0, 0, 0.8);
     color: white;
+    font-size: 16px;
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif; 
     position: absolute;
     height: 100%;
     overflow: auto;
@@ -79,13 +74,39 @@ main {
     bottom: 0;
     right: 0;
     transform: translateY(101%);
-    transition: transform 0.3s ease-in;
+    transition: transform .5s ease-in;
 }
 
 .overview h6 {
     margin-top: 0;
+    font-size: 18px;
+    color: #e50914;
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+
 }
 
 .movie:hover .overview {
     transform: translateY(0);
+}
+
+.netflix-sans-font-loaded {
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif
+}
+.buy{
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #fff ;
+    font-size: 14.4px;
+    background-color: #e50914;
+    -webkit-box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
+    -moz-box-shadow: 0 1px 0 rgba(0,0,0,.45);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
+    padding: 0px 16px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 0;
+    border-radius: 2px;
+    width:50%;
+    height: 7%;
+
+
 }

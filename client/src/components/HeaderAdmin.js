@@ -19,17 +19,6 @@ import { makeStyles } from '@material-ui/core';
 
   
   const useStyles = makeStyles((theme) => ({
-    // root: {
-    //     flexGrow: 1,
-    // },
-    // menuButton: {
-    //     marginRight: theme.spacing(2),
-    //     color: 'black'
-    // },
-    // title: {
-    //     flexGrow: 1,
-    //     color: 'black'
-    // },
     appBarTransparent: {
         backgroundColor: 'transparent'
     },
@@ -41,7 +30,6 @@ import { makeStyles } from '@material-ui/core';
 
 const HeaderAdmin = () => {
     const classes = useStyles();
-
     const [navBackground, setNavBackground] = useState('appBarTransparent')
     const navRef = React.useRef()
     navRef.current = navBackground
@@ -82,12 +70,12 @@ const HeaderAdmin = () => {
       <div className={classes.root}>
     <Navbar className={classes.appBarSolid} style={style} light expand="md" className={classes[navRef.current]}>
       <img style= {imageStyle} src={Logo} alt="logo"/>
-      <NavbarBrand  href="/"  style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
+      <NavbarBrand  href="/login/hi"  style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
       <Nav className="mr-auto" navbar>
         <NavItem>
-          <NavLink href="/admin/movies"  style={{color:'whitesmoke'}}>Add New</NavLink>
+          <NavLink href="/admin/movies"  style={{color:'whitesmoke'}}>Add Movie</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="/admin/info"  style={{color:'whitesmoke'}}>View Tickets</NavLink>

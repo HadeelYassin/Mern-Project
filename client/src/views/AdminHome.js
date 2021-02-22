@@ -1,21 +1,18 @@
 import React from 'react'
 import Footer from '../components/Footer'
-import Header from '../components/Header'
 import Video from '../components/Video';
+import MoviesList from '../components/MoviesList';
+import HeaderAdmin from '../components/HeaderAdmin';
 
-const Home = () => {
-    const Style={
-        backgroundColor: '#202020'
-    }
+const AdminHome = () => {
     return (
-        
-        <div style={Style}>
+        <div>
             <Video/>
             <MoviesList/>
-            <Header/>    
+            <HeaderAdmin/>    
             <Footer/>
         </div>
     )
 }
 
-export default Home
+export default AdminHome

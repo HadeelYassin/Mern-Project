@@ -13,8 +13,6 @@ const MoviesAdmin = () => {
             <br/>
             <br/>
             <br/>
-            <br/><br/>
-            <br/>
             <br/>
             <br/>
             <AddMovie/>
