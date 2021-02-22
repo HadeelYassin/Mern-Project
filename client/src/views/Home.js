@@ -1,6 +1,8 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Movies from '../components/Movies';
+import MoviesList from '../components/MoviesList';
 import Video from '../components/Video';
 import MoviesList from '../components/MoviesList';
 const Home = () => {
@@ -10,14 +12,9 @@ const Home = () => {
     return (
         
         <div style={Style}>
-        <Video/>
-            <div>
-            <Header/>
-            </div>
-        
-            
-       
-        <MoviesList/>
+            <Video/>
+            <MoviesList/>
+            <Header/>    
             <Footer/>
         </div>
     )
