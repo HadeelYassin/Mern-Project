@@ -14,7 +14,7 @@ const Movies = ({ poster_path, title, vote_average, overview, video, release_dat
       {/* <div class="movie-info">
         <h4>{title}</h4>
       </div> */}
-      <img src={IMGPATH + poster_path} alt={title} />
+      <img  src={IMGPATH + poster_path} alt={title} />
       <div class="movie-date">
         <h4>{"FRIDAY, FEBRUARY 12"}</h4>
         <h4>{"10:00 am "}</h4>

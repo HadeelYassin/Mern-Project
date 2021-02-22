@@ -18,12 +18,8 @@ function App() {
         <AdminAdd path="/login/hi"/>
         <BuyTicketsComponent path="/new"/>
         <Home path="/"/>
-<<<<<<< HEAD
-        <BuyersList path="/info"/>
-=======
         <BuyersList path="/admin/info"/>
         <MoviesAdmin path="/admin/movies"/>
->>>>>>> 5282625961909143fd61cde2862c4636c255e922
       </Router>
     </div>
   );

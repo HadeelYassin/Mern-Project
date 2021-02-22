@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import Movies from '../components/Movies';
 import MoviesList from '../components/MoviesList';
 import Video from '../components/Video';
-import MoviesList from '../components/MoviesList';
+
 const Home = () => {
     const Style={
         backgroundColor: '#202020'
