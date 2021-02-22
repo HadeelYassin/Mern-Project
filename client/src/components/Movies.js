@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { navigate, Link } from "@reach/router"
 import '../styles/movies.css';
 // import { Button } from '@material-ui/core';
 
@@ -27,7 +28,7 @@ const Movies = ({ poster_path, title, vote_average, overview, video, release_dat
         </div>
         <h6>{"There is a ticket !!"}</h6>
 
-        <button className="buy">Book Now</button>
+        <button className="buy" onClick={()=>navigate("/new")}>Book Now</button>
         {/* <Button variant="contained" color="primary" disableElevation>
           Buy Now!!
         </Button> */}
