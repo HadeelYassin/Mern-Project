@@ -1,4 +1,5 @@
 import React from 'react'
+import AddCategory from '../components/AddCategory'
 import AddMovie from '../components/AddMovie'
 import Footer from '../components/Footer'
 import HeaderAdmin from '../components/HeaderAdmin'
@@ -15,6 +16,7 @@ const MoviesAdmin = () => {
             <br/>
             <br/>
             <br/>
+            {/* <AddCategory/> */}
             <AddMovie/>
             <HeaderAdmin/>
             

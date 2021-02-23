@@ -10,54 +10,45 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
   } from 'reactstrap';
 import { makeStyles } from '@material-ui/core';
+import axios from 'axios';
 
-
-
-  
-  const useStyles = makeStyles((theme) => ({
-    appBarTransparent: {
-        backgroundColor: 'transparent'
-    },
-    appBarSolid: {
-        backgroundColor: 'black'
-    }
-}));
-
+const useStyles = makeStyles((theme) => ({
+  appBarTransparent: {
+      backgroundColor: 'transparent'
+  },
+  appBarSolid: {
+      backgroundColor: 'black'
+  }
+    }));
 
 const HeaderAdmin = () => {
-    const classes = useStyles();
-    const [navBackground, setNavBackground] = useState('appBarTransparent')
-    const navRef = React.useRef()
-    navRef.current = navBackground
-    useEffect(() => {
-        const handleScroll = () => {
-            const show = window.scrollY > 100
-            if (show) {
-                setNavBackground('appBarSolid')
-            } else {
-                setNavBackground('appBarTransparent')
-            }
+  const classes = useStyles();
+  const [navBackground, setNavBackground] = useState('appBarTransparent')
+  const navRef = React.useRef()
+  navRef.current = navBackground
+  useEffect(() => {
+    const handleScroll = () => {
+        const show = window.scrollY > 100
+        if (show) {
+            setNavBackground('appBarSolid')
+        } else {
+            setNavBackground('appBarTransparent')
         }
-        document.addEventListener('scroll', handleScroll)
-        return () => {
-            document.removeEventListener('scroll', handleScroll)
-        }
+    }
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+        document.removeEventListener('scroll', handleScroll)
+    }
     }, [])
-    
-  
+
     const imageStyle={
         padding: '12px 15px',
         width:'100px',
         height:'30px'
     }
     const style={
-        // backgroundColor:'transparent',
         transition: '2s ease',
         position:'fixed',
         overflow: 'hidden',
@@ -108,5 +99,4 @@ const HeaderAdmin = () => {
     </div>
     )
 }
-
 export default HeaderAdmin

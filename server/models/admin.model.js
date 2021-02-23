@@ -4,15 +4,12 @@ const AdminSchema = new mongoose.Schema({
     type: String,
     enum: ["admin"],
     required: [true, "Username is required"]
-
   },
-
   password: {
     type: String,
     enum: ["admin"],
     required: [true, "Password is required"]
   }
-
 }, { timestamps: true });
 
 

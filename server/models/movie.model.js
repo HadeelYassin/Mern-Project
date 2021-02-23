@@ -28,7 +28,6 @@ const MovieSchema = new mongoose.Schema({
     },
     showingDate: { type: Date, min: Date.now },
 
-
     Buyers: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 
 }, { timestamps: true });
