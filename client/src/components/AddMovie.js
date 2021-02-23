@@ -6,9 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
-// import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +56,7 @@ const AddMovie = () => {
 
   const onSubmitHandler = e => {
     e.preventDefault();
-    axios.post('/api/createmovie', {
+    axios.post('http://localhost:8000/api/createmovie', {
         title,
         price,
         description,
@@ -74,26 +72,24 @@ const AddMovie = () => {
     <div className="containerr">
       <Container  fixed maxWidth="sm" >
     <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
-      <Grid item xs={12} ><TextField onChange={(e)=>setTitle(e.target.value)} id="standard-basic" label="Title" fullWidth className={classes.textField}/></Grid>
-      <Grid item xs={12} sm={6}><InputLabel id="demo-simple-select-label">Category</InputLabel>
+      <Grid item xs={12} ><TextField onChange={(e)=>setTitle(e.target.value)} value={title} id="standard-basic" label="Title" fullWidth className={classes.textField}/></Grid>
+      <Grid item xs={12} sm={6}><InputLabel id="demo-simple-select-label" >Category</InputLabel>
       <Select labelId="demo-simple-select-label" id="demo-simple-select" value={category} onChange={(e)=>setCategory(e.target.value)} fullWidth className={classes.textField}>
         {options.map((option) => (
         <MenuItem value={option} fullWidth  className={classes.textField}>
           {option}
         </MenuItem >
-      ))}
+        ))}
       </Select></Grid>
-      <Grid item xs={16}><TextField id="standard-multiline-flexible" onChange={(e)=>setDescription(e.target.value)} label="Description" multiline fullWidth rowsMax={10} className={classes.textField}/></Grid>
-      <Grid item xs={12}><TextField id="standard-number" onChange={(e)=>setPrice(e.target.value)} label="Ticket Price" type="number" InputLabelProps={{shrink: true,}}fullWidthclassName={classes.textField}/></Grid>
-      <Grid item xs={12}><TextField id="standard-basic" onChange={(e)=>setImageUrl(e.target.value)} label="Poster url" fullWidth className={classes.textField}/></Grid>
-      <Grid item xs={12}><TextField id="standard-basic" onChange={(e)=>setTrailerUrl(e.target.value)} label="Trailer url" fullWidth className={classes.textField}/></Grid>
-      <Grid item xs={12}><TextField id="datetime-local" onChange={(e)=>setShowingDate(e.target.value)} label="Next appointment" type="datetime-local" defaultValue="2017-05-24T10:30" className={classes.textField} InputLabelProps={{shrink: true,}}/></Grid>
-      <button className="buy" type="submit">Add</button>
+      <Grid item xs={16}><TextField id="standard-multiline-flexible" onChange={(e)=>setDescription(e.target.value)} label="Description" multiline fullWidth rowsMax={10} value={description} className={classes.textField}/></Grid>
+      <Grid item xs={12}><TextField id="standard-number" onChange={(e)=>setPrice(e.target.value)} label="Ticket Price" type="number" InputLabelProps={{shrink: true,}}value={price} fullWidthclassName={classes.textField}/></Grid>
+      <Grid item xs={12}><TextField id="standard-basic" onChange={(e)=>setImageUrl(e.target.value)} label="Poster url" fullWidth className={classes.textField} value={imageUrl}/></Grid>
+      <Grid item xs={12}><TextField id="standard-basic" onChange={(e)=>setTrailerUrl(e.target.value)} label="Trailer url" fullWidth className={classes.textField} value={trailerUrl}/></Grid>
+      <Grid item xs={12}><TextField id="datetime-local" onChange={(e)=>setShowingDate(e.target.value)} label="Next appointment" value={showingDate} type="datetime-local" defaultValue="2017-05-24T10:30" className={classes.textField} InputLabelProps={{shrink: true,}}/></Grid>
+      <button className="buy">Add</button>
     </form>
       </Container>
     </div>
-
     )
 }
-
 export default AddMovie
