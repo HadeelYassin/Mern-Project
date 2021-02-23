@@ -12,7 +12,7 @@ import {
     NavLink,
   } from 'reactstrap';
 import { makeStyles } from '@material-ui/core';
-import axios from 'axios';
+
 
 const useStyles = makeStyles((theme) => ({
   appBarTransparent: {
@@ -86,16 +86,16 @@ const HeaderAdmin = () => {
           <NavLink   style={{color:'whitesmoke'}}>View Tickets</NavLink>
         </NavItem>
         <NavItem>
-      
-        </NavItem>
-      </Nav>
-    </Collapse>
-  </Navbar>
-  <form onSubmit={handleLogoutClick}>
+        <form onSubmit={handleLogoutClick}>
             <button>
           Log Out
           </button>
           </form>
+        </NavItem>
+      </Nav>
+    </Collapse>
+  </Navbar>
+  
     </div>
     )
 }
