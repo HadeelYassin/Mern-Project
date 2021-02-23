@@ -1,4 +1,4 @@
-import React,{useState,navigate} from 'react'
+import React,{useState,navigate, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
@@ -52,9 +52,18 @@ const AddMovie = () => {
   const[imageUrl, setImageUrl] = useState("")
   const[showingDate, setShowingDate] = useState("")
   const[trailerUrl, setTrailerUrl] = useState("")
-
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory,setSelectedCategory]=useState("")
+  const [loaded, setLoaded] = useState(false);
+  useEffect(()=>{
+      axios.get('http://localhost:8000/api/getAllCategories')
+          .then(res=>{
+            setCategories(res.data);
+              setLoaded(true);
+          });
+  },[])
   const classes = useStyles();
-  const [category, setCategory] = React.useState('');
+  
 
   const onSubmitHandler = e => {
     e.preventDefault();
@@ -66,7 +75,7 @@ const AddMovie = () => {
         trailerUrl,
         showingDate
     })
-    .then(() => navigate("/"))
+    .then(() => console.log("++++++++"))
     .catch(err=>console.log(err))
 }
   
@@ -76,13 +85,14 @@ const AddMovie = () => {
     <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
       <Grid item xs={12} ><TextField onChange={(e)=>setTitle(e.target.value)} id="standard-basic" label="Title" fullWidth className={classes.textField}/></Grid>
       <Grid item xs={12} sm={6}><InputLabel id="demo-simple-select-label">Category</InputLabel>
-      <Select labelId="demo-simple-select-label" id="demo-simple-select" value={category} onChange={(e)=>setCategory(e.target.value)} fullWidth className={classes.textField}>
-        {options.map((option) => (
-        <MenuItem value={option} fullWidth  className={classes.textField}>
-          {option}
-        </MenuItem >
-      ))}
-      </Select></Grid>
+    
+      <Select labelId="demo-simple-select-label" id="demo-simple-select" fullWidth className={classes.textField} onChange={(e)=>setSelectedCategory(e.target.value)} >
+            {categories.map((category, idx)=>{
+                return <MenuItem fullWidth  className={classes.textField} key={idx} value={category._id}>{category.Name}</MenuItem>
+            })}
+        
+        </Select>
+      </Grid>
       <Grid item xs={16}><TextField id="standard-multiline-flexible" onChange={(e)=>setDescription(e.target.value)} label="Description" multiline fullWidth rowsMax={10} className={classes.textField}/></Grid>
       <Grid item xs={12}><TextField id="standard-number" onChange={(e)=>setPrice(e.target.value)} label="Ticket Price" type="number" InputLabelProps={{shrink: true,}}fullWidthclassName={classes.textField}/></Grid>
       <Grid item xs={12}><TextField id="standard-basic" onChange={(e)=>setImageUrl(e.target.value)} label="Poster url" fullWidth className={classes.textField}/></Grid>
