@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,navigate} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
@@ -7,6 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 // import TextField from '@material-ui/core/TextField';
+import axios from 'axios';
 
 
 
@@ -45,68 +46,51 @@ const options = [
 ];
 
 const AddMovie = () => {
+  const [title, setTitle] = useState(""); 
+  const [price, setPrice] = useState("");
+  const[description, setDescription] = useState("")
+  const[imageUrl, setImageUrl] = useState("")
+  const[showingDate, setShowingDate] = useState("")
+  const[trailerUrl, setTrailerUrl] = useState("")
+
   const classes = useStyles();
   const [category, setCategory] = React.useState('');
 
-  const handleChange = (event) => {
-    setCategory(event.target.value);
-  };
-
+  const onSubmitHandler = e => {
+    e.preventDefault();
+    axios.post('/api/createmovie', {
+        title,
+        price,
+        description,
+        imageUrl,
+        trailerUrl,
+        showingDate
+    })
+    .then(() => navigate("/"))
+    .catch(err=>console.log(err))
+}
+  
   return (
     <div className="containerr">
       <Container  fixed maxWidth="sm" >
-    <form className={classes.root} noValidate autoComplete="off">
-    <Grid item xs={12} ><TextField id="standard-basic" label="Name" fullWidth className={classes.textField}/></Grid>
-    <Grid item xs={12} sm={6}><InputLabel id="demo-simple-select-label">Category</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={category}
-          onChange={handleChange}
-          fullWidth
-          className={classes.textField}
-        >
-          {options.map((option) => (
-          <MenuItem value={option} fullWidth  className={classes.textField}>
-            {option}
-          </MenuItem >
-        ))}
-        </Select></Grid>
-    <Grid item xs={16} ><TextField
-          id="standard-multiline-flexible"
-          label="Description"
-          multiline
-          fullWidth
-          rowsMax={10}
-          className={classes.textField}
-        /></Grid>
-      {/* <Grid item xs={16} ><FormControl className={classes.formControl}> */}
-      
-      {/* </FormControl></Grid> */}
-      <Grid item xs={12} ><TextField
-          id="standard-number"
-          label="Ticket Price"
-          type="number"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          fullWidth
-          className={classes.textField}
-        /></Grid>
-        <Grid item xs={12} ><TextField id="standard-basic" label="Poster url" fullWidth className={classes.textField}/></Grid>
-        <Grid item xs={12} ><TextField id="standard-basic" label="Trailer url" fullWidth className={classes.textField}/></Grid>
-        <Grid item xs={12} ><TextField
-        id="datetime-local"
-        label="Next appointment"
-        type="datetime-local"
-        defaultValue="2017-05-24T10:30"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      /></Grid>
+    <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
+      <Grid item xs={12} ><TextField onChange={(e)=>setTitle(e.target.value)} id="standard-basic" label="Title" fullWidth className={classes.textField}/></Grid>
+      <Grid item xs={12} sm={6}><InputLabel id="demo-simple-select-label">Category</InputLabel>
+      <Select labelId="demo-simple-select-label" id="demo-simple-select" value={category} onChange={(e)=>setCategory(e.target.value)} fullWidth className={classes.textField}>
+        {options.map((option) => (
+        <MenuItem value={option} fullWidth  className={classes.textField}>
+          {option}
+        </MenuItem >
+      ))}
+      </Select></Grid>
+      <Grid item xs={16}><TextField id="standard-multiline-flexible" onChange={(e)=>setDescription(e.target.value)} label="Description" multiline fullWidth rowsMax={10} className={classes.textField}/></Grid>
+      <Grid item xs={12}><TextField id="standard-number" onChange={(e)=>setPrice(e.target.value)} label="Ticket Price" type="number" InputLabelProps={{shrink: true,}}fullWidthclassName={classes.textField}/></Grid>
+      <Grid item xs={12}><TextField id="standard-basic" onChange={(e)=>setImageUrl(e.target.value)} label="Poster url" fullWidth className={classes.textField}/></Grid>
+      <Grid item xs={12}><TextField id="standard-basic" onChange={(e)=>setTrailerUrl(e.target.value)} label="Trailer url" fullWidth className={classes.textField}/></Grid>
+      <Grid item xs={12}><TextField id="datetime-local" onChange={(e)=>setShowingDate(e.target.value)} label="Next appointment" type="datetime-local" defaultValue="2017-05-24T10:30" className={classes.textField} InputLabelProps={{shrink: true,}}/></Grid>
+      <button className="buy" type="submit">Add</button>
     </form>
-    </Container>
+      </Container>
     </div>
 
     )

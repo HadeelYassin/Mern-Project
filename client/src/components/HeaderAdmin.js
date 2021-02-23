@@ -1,4 +1,4 @@
-import React,{ useEffect, useRef, useState } from 'react'
+import React,{ useEffect, useRef, useState,navigate } from 'react'
 import Logo from '../images/logo.png'
 import {
     Collapse,
@@ -14,6 +14,7 @@ import {
     DropdownItem,
   } from 'reactstrap';
 import { makeStyles } from '@material-ui/core';
+import axios from 'axios';
 
 
 
@@ -47,6 +48,17 @@ const HeaderAdmin = () => {
             document.removeEventListener('scroll', handleScroll)
         }
     }, [])
+
+//     const onClickHandler = e => {
+//       e.preventDefault();
+//       axios.get('http://localhost:8000/api/logout')
+//           .then(res=> {if(res.data.errors == null)
+//               { navigate('/') }else{
+//                   console.log(res.data.errors);
+//               }
+//           }
+//           )
+// }
     
   
     const imageStyle={
@@ -81,7 +93,7 @@ const HeaderAdmin = () => {
           <NavLink href="/admin/info"  style={{color:'whitesmoke'}}>View Tickets</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/admin/info"  style={{color:'whitesmoke', float:'right'}}>Log Out</NavLink>
+          <NavLink href="/admin"  style={{color:'whitesmoke', float:'right'}}>Log Out</NavLink>
         </NavItem>
       </Nav>
     </Collapse>
