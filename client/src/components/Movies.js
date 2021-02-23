@@ -32,7 +32,6 @@ const Movies = ({ poster_path, title, vote_average, overview, video, release_dat
         {/* <Button variant="contained" color="primary" disableElevation>
           Buy Now!!
         </Button> */}
-
       </div>
     </div>
   );

@@ -5,8 +5,12 @@ import MoviesList from '../components/MoviesList';
 import HeaderAdmin from '../components/HeaderAdmin';
 
 const AdminHome = () => {
+    const Style={
+        backgroundColor: '#202020'
+    }
     return (
-        <div>
+        
+        <div style={Style}>
             <Video/>
             <MoviesList/>
             <HeaderAdmin/>    
