@@ -27,7 +27,7 @@ module.exports.createUser = async (request, response) => {
 module.exports.createCategory = (request, response) => {
     Category.create(request.body)
         .then(person => response.json(person))
-        .catch(err => response.json(err));ssssss
+        .catch(err => response.json(err));
 }
 
 module.exports.allMovies= (request, response) =>{

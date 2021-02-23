@@ -1,4 +1,6 @@
 import React,{ useEffect, useRef, useState } from 'react'
+import { navigate } from '@reach/router';
+import axios from "axios";
 import Logo from '../images/logo.png'
 import {
     Collapse,
@@ -65,27 +67,44 @@ const HeaderAdmin = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
-    
+    const handleLogoutClick=(e)=> {
+      e.preventDefault();
+      axios
+        .get("http://localhost:8000/api/logout",{withCredentials:true})
+        .then(res=>
+          { navigate('/') }
+        
+        )
+        .catch(error => {
+          console.log("logout error", error);
+        });
+    }
+  
     return (
       <div className={classes.root}>
     <Navbar className={classes.appBarSolid} style={style} light expand="md" className={classes[navRef.current]}>
       <img style= {imageStyle} src={Logo} alt="logo"/>
-      <NavbarBrand  href="/login/hi"  style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
+      <NavbarBrand    style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
       <Nav className="mr-auto" navbar>
         <NavItem>
-          <NavLink href="/admin/movies"  style={{color:'whitesmoke'}}>Add Movie</NavLink>
+          <NavLink   style={{color:'whitesmoke'}}>Add Movie</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/admin/info"  style={{color:'whitesmoke'}}>View Tickets</NavLink>
+          <NavLink   style={{color:'whitesmoke'}}>View Tickets</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/admin/info"  style={{color:'whitesmoke', float:'right'}}>Log Out</NavLink>
+      
         </NavItem>
       </Nav>
     </Collapse>
   </Navbar>
+  <form onSubmit={handleLogoutClick}>
+            <button>
+          Log Out
+          </button>
+          </form>
     </div>
     )
 }

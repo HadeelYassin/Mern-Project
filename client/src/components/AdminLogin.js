@@ -52,7 +52,7 @@ export default function LoginForm() {
             password,
             })
                 .then(res=> {if(res.data.errors == null)
-                    { navigate('/login/hi') }else{
+                    { navigate('/admin/info') }else{
                         console.log(res.data.errors);
                     }
 
