@@ -12,6 +12,7 @@ import {
     NavLink,
   } from 'reactstrap';
 import { makeStyles } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -75,21 +76,21 @@ const HeaderAdmin = () => {
       <div className={classes.root}>
     <Navbar className={classes.appBarSolid} style={style} light expand="md" className={classes[navRef.current]}>
       <img style= {imageStyle} src={Logo} alt="logo"/>
-      <NavbarBrand    style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
+      <NavbarBrand  href="/login/hi" style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
       <Nav className="mr-auto" navbar>
         <NavItem>
-          <NavLink   style={{color:'whitesmoke'}}>Add Movie</NavLink>
+          <NavLink    href="/admin/movies" style={{color:'whitesmoke'}}>Add Movie</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink   style={{color:'whitesmoke'}}>View Tickets</NavLink>
+          <NavLink  href="/admin/info" style={{color:'whitesmoke'}}>View Tickets</NavLink>
         </NavItem>
         <NavItem>
         <form onSubmit={handleLogoutClick}>
-            <button>
+            <Button variant="outlined" style={{color:'whitesmoke'}}>
           Log Out
-          </button>
+          </Button>
           </form>
         </NavItem>
       </Nav>
