@@ -10,19 +10,25 @@ const MoviesAdmin = () => {
         width:"100%"
     }
     const [categories, setCategories] = useState([]);
-    useEffect(()=>{
+    // useEffect(()=>{
+    //     axios.get('http://localhost:8000/api/getAllCategories')
+    //         .then(res=>{
+    //           setCategories(res.data);
+    //         });
+    // },[])
+    const change=(bol)=>{
         axios.get('http://localhost:8000/api/getAllCategories')
             .then(res=>{
               setCategories(res.data);
             });
-    },[])
+    }
     return (
         <div style={Style} >
             <br/>
             <br/>
             <br/>
-            <AddCategory />
-            <AddMovie categories={categories}/>
+            <AddCategory change={change}/>
+            <AddMovie categoriess={categories}/>
             <HeaderAdmin/>
             
             <Footer/>

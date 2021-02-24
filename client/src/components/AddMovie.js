@@ -99,7 +99,7 @@ const AddMovie = (props) => {
             })}
         </Select>
         <Select>
-          {props.categories.map((category, indx)=>{
+          {props.categoriess.map((category, indx)=>{
             return <MenuItem>{category.name}</MenuItem>
           })}
         </Select>

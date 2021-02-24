@@ -50,7 +50,7 @@ const AddCategory = (props) => {
         axios.post('http://localhost:8000/api/createcategory', {
             name
         })
-        .then(res=>console.log(res))
+        .then(props.change("yeah"))
         .catch(err=>console.log(err))
     }
 
