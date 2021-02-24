@@ -31,6 +31,7 @@ const BuyersList = () => {
         <div style={Style} >
             <br/>
             <br/>
+          
             <UsersTable />
             <HeaderAdmin />
             <Footer/>

@@ -35,7 +35,7 @@ const ITEM_HEIGHT = 48;
     }
 }));
 
-const Header = () => {
+const Header = (props) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -119,11 +119,10 @@ const Header = () => {
           },
         }}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-            {option}
-          </MenuItem>
-        ))}
+         
+         {props.categories.map((category, idx)=>{
+                return <MenuItem   key={idx} >{category.name}</MenuItem>
+            })}
       </Menu>
       {/* <NavItem>
               <NavLink href="/admin" style={{color:'whitesmoke'}}>Login</NavLink>

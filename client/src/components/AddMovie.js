@@ -84,7 +84,7 @@ const AddMovie = (props) => {
   return (
     
     <div className="containerr">
-      <div>{ props.categories}</div>
+      
       <Container  fixed maxWidth="sm" >
       <div className={classes.title} >{"Add Movie"}</div>
     <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
@@ -95,7 +95,7 @@ const AddMovie = (props) => {
             id: 'demo-simple-select-label',
           }}>
             {categories.map((category, idx)=>{
-                return <MenuItem   key={idx} value={category._id}>{props.categories.name}</MenuItem>
+                return <MenuItem   key={idx} value={category._id}>{categories.name}</MenuItem>
             })}
         </Select>
        
