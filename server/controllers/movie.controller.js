@@ -17,13 +17,14 @@ module.exports.createUser = async (request, response) => {
     const { firstName,lastName,phoneNumber,numberOfTickets,status} = request.body;
     await User.create({ firstName,lastName,phoneNumber,numberOfTickets,status})
         .then(person=> {
-            Movie.findOneAndUpdate({'_id':'6034e7564bfb5d28fc7b0cbe'},{ 
+            Movie.findOneAndUpdate({'_id':"603622e0f462422c1404ae36"},{ 
                 $push:{Buyers: person}
              }).catch(err => response.json(err));
              return response.json(person)
         })
-        .catch(err => response.json(err));
+        .catch(err => response.status(400).json(err))
 }
+
 module.exports.createCategory = (request, response) => {
     Category.create(request.body)
         .then(person => response.json(person))
@@ -41,6 +42,7 @@ module.exports.deleteMovie = (request, response) => {
         .then(deleteConfirmation => response.json(deleteConfirmation))
         .catch(err => response.json(err))
 }
+
 module.exports.allCategories=(request, response) =>{
     Category.find().populate('Movies')
     .then(categories=>response.json(categories))
@@ -52,6 +54,7 @@ module.exports.getMovie = (request, response) => {
         .then(movie => response.json(movie))
         .catch(err => response.json(err))
 }
+
 module.exports.deleteCategory = (request, response) => {
     Category.deleteOne({ _id: request.params.id })
         .then(deleteConfirmation => response.json(deleteConfirmation))

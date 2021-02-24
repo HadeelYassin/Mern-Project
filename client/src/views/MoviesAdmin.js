@@ -8,7 +8,7 @@ const MoviesAdmin = () => {
     const Style={
         backgroundColor: '#8c8787',
         width:"100%"
-    }
+    };
     const [categories, setCategories] = useState([]);
   
     const categorie=(newCategoory)=>{
