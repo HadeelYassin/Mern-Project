@@ -95,7 +95,7 @@ const AddMovie = (props) => {
             id: 'demo-simple-select-label',
           }}>
             {categories.map((category, idx)=>{
-                return <MenuItem   key={idx} value={category._id}>{props.categories}</MenuItem>
+                return <MenuItem   key={idx} value={category._id}>{props.categories.name}</MenuItem>
             })}
         </Select>
        

@@ -47,11 +47,11 @@ const AddCategory = (props) => {
     const classes = useStyles();
     const onSubmitHandler = e => {
         e.preventDefault();
-        props.onNewCategory(name);
+        
         axios.post('http://localhost:8000/api/createcategory', {
             name
         })
-        .then(res=>console.log(res))
+        .then(res=>{props.onNewCategory(name)})
         .catch(err=>console.log(err))
     }
 
