@@ -25,8 +25,21 @@ const options = [
 ];
 
 const ITEM_HEIGHT = 48;
+
+
   
   const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+        color: 'black'
+    },
+    title: {
+        flexGrow: 1,
+        color: 'black'
+    },
     appBarTransparent: {
         backgroundColor: 'transparent'
     },
@@ -73,6 +86,7 @@ const Header = (props) => {
         height:'70px'
     }
     const style={
+        // backgroundColor:'transparent',
         transition: '1s ease',
         position:'fixed',
         overflow: 'hidden',
@@ -90,12 +104,12 @@ const Header = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <Button>
+            <NavItem>
               <NavLink href="#" style={{color:'whitesmoke'}}>About Us</NavLink>
-            </Button>
-            <Button>
+            </NavItem>
+            <NavItem>
               <NavLink href="#" style={{color:'whitesmoke'}}>Contact</NavLink>
-            </Button>
+            </NavItem>
             <Button
         aria-label="more"
         aria-controls="long-menu"
@@ -122,9 +136,9 @@ const Header = (props) => {
                 return <MenuItem   key={idx} >{category.name}</MenuItem>
             })}
       </Menu>
-      {/* <NavItem>
+      <NavItem>
               <NavLink href="/admin" style={{color:'whitesmoke'}}>Login</NavLink>
-            </NavItem> */}
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>

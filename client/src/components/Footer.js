@@ -13,7 +13,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="inherit">
       {'Copyright © '}
-      <Link color="red" href="/">
+      <Link color="inherit" href="/">
       Movie Time
       </Link>{' '}
       {new Date().getFullYear()}
@@ -35,10 +35,7 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     padding: theme.spacing(3, 2),
      marginTop: 'auto',
-    backgroundColor:'transparent',
-    position:'fixed',
-    bottom:0,
-    minWidth:"100%"
+    backgroundColor:'transparent'
   },
 }));
 
@@ -47,13 +44,13 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
     const classes = useStyles();
     return (
-        <div style={{align:"center"}} >
+        <div >
       <footer className={classes.footer}>
-        <Container minWidth="sm" style={{ color: 'white' }}>
+        <Container maxWidth="sm">
             <Copyright />
-            <FacebookIcon />
-            <TwitterIcon />
-            <InstagramIcon/>
+            <FacebookIcon style={{ color: 'white' }}/>
+            <TwitterIcon style={{ color: 'white' }}/>
+            <InstagramIcon style={{ color: 'white' }}/>
         </Container>
       </footer>
     </div>

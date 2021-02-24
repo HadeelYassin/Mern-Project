@@ -7,6 +7,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
+
+
 import axios from 'axios';
 
 
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 200,
+    width: 300,
   },
   title:{
     ...theme.typography.button,
@@ -62,6 +64,7 @@ const AddMovie = (props) => {
   },[])
   const classes = useStyles();
   
+
   const onSubmitHandler = e => {
     e.preventDefault();
     axios.post('http://localhost:8000/api/createmovie', {
@@ -92,7 +95,7 @@ const AddMovie = (props) => {
             id: 'demo-simple-select-label',
           }}>
             {categories.map((category, idx)=>{
-                return <MenuItem   key={idx} value={category._id}>{category.name}</MenuItem>
+                return <MenuItem   key={idx} value={category._id}>{props.categories.name}</MenuItem>
             })}
         </Select>
        
