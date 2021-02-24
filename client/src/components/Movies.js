@@ -8,6 +8,12 @@ import '../styles/movies.css';
 
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const Movies = ({ poster_path, title, vote_average, overview, video, release_date }) => {
+//   const deleteMovie = (movieId) => {
+//     axios.delete('http://localhost:8000/api' + movieId)
+//         .then(res => {
+//             removeFromDom(movieId)
+//         })
+// }
 
   return (
 
@@ -29,6 +35,7 @@ const Movies = ({ poster_path, title, vote_average, overview, video, release_dat
         <h6>{"There is a ticket !!"}</h6>
 
         <button className="buy" onClick={()=>navigate("/new")}>Book Now</button>
+        
         {/* <Button variant="contained" color="primary" disableElevation>
           Buy Now!!
         </Button> */}

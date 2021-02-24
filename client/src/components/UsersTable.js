@@ -14,6 +14,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
+
 
 
 
@@ -98,13 +100,15 @@ const UsersTable = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-         
         >
           {movies.map((movie, idx)=>{
                 return <MenuItem   key={idx} value={movie._id}>{movie.title}</MenuItem>
             })}
         </Select>
+        <TextField disabled id="standard-disabled" label="Disabled" defaultValue={movies.price} />
       </FormControl>
+      
+
         <Container  fixed maxWidth="md">
         <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
@@ -113,6 +117,7 @@ const UsersTable = () => {
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell align="center">Phone Number</StyledTableCell>
             <StyledTableCell align="center"># Tickets&nbsp;</StyledTableCell>
+            <StyledTableCell align="center">Total Price&nbsp;</StyledTableCell>
             <StyledTableCell align="center">Paid&nbsp;</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -123,6 +128,7 @@ const UsersTable = () => {
                 {row.name}
               </StyledTableCell>
               <StyledTableCell align="center">{row.phone}</StyledTableCell>
+              <StyledTableCell align="center">{row.ticket}</StyledTableCell>
               <StyledTableCell align="center">{row.ticket}</StyledTableCell>
               <Checkbox
               style={{color:'red'}}

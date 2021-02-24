@@ -35,8 +35,19 @@ module.exports.allMovies= (request, response) =>{
     .then(movies=>response.json(movies))
     .catch(err=>response.status(400).json(err));
 }
+
+module.exports.deleteMovie = (request, response) => {
+    Movie.deleteOne({ _id: request.params.id })
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
+}
 module.exports.allCategories=(request, response) =>{
     Category.find().populate('Movies')
     .then(categories=>response.json(categories))
     .catch(err=>response.status(400).json(err));
+}
+module.exports.deleteCategory = (request, response) => {
+    Category.deleteOne({ _id: request.params.id })
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
 }
