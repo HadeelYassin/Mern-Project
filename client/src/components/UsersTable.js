@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 200,
+    minWidth: 100,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -112,22 +112,20 @@ console.log(x)
                 return <p key={idx}>{buyer.firstName}</p>
             })}
         </div>
-      <FormControl className={classes.formControl} >
+      <FormControl className={classes.formControl} style={{display:"inline-flex"}}>
         <InputLabel id="demo-simple-select-label">Movies</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           onChange={callRandom}
-         
         >
           {movies.map((movie, idx)=>{
                 return <MenuItem   key={idx} value={movie._id} >{movie.title}</MenuItem>
             })}
         </Select>
-        <TextField disabled id="standard-disabled" label="Disabled" defaultValue={movies.price} />
+        <TextField disabled id="standard-disabled" label="Disabled"  defaultValue={movies.price} />
       </FormControl>
       
-
         <Container  fixed maxWidth="md">
         <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">

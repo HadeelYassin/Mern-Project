@@ -8,8 +8,6 @@ import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment';
-
-
 import axios from 'axios';
 
 
@@ -43,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
 }
 }));
 
-
 const AddMovie = () => {
   const [title, setTitle] = useState(""); 
   const [price, setPrice] = useState();
@@ -55,7 +52,7 @@ const AddMovie = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory,setSelectedCategory]=useState("")
   const [loaded, setLoaded] = useState(false);
-  
+
   useEffect(()=>{
       axios.get('http://localhost:8000/api/getAllCategories')
           .then(res=>{
@@ -65,7 +62,6 @@ const AddMovie = () => {
   },[loaded])
   const classes = useStyles();
   
-
   const onSubmitHandler = e => {
     e.preventDefault();
     axios.post('http://localhost:8000/api/createmovie', {
