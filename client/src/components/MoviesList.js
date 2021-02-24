@@ -21,8 +21,12 @@ const MoviesList = () => {
 				<img src={movie.imageUrl} alt="poster" />
 				<div className="movie-date">
 					<h4>{
-					movie.showingDate.slice(0,3)}<br />
+					movie.showingDate.slice(0,10)}<br />
 					</h4>
+					<h4>{
+					movie.showingDate.slice(11,19)}<br />
+					</h4>
+					
 				</div>
 				<div className="overview">
 					<div>
