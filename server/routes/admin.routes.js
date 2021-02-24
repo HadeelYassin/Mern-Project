@@ -7,8 +7,10 @@ module.exports = app => {
   app.get("/api/logout", Admin.logout);
   app.post("/api/createmovie",Movie.createMovie);
   app.post("/api/createuser",User.createUser);
-  app.post("/api/createcategory",User.createCategory);
+  app.post("/api/createcategory",Movie.createCategory);
   app.get("/api/getAllMovies",Movie.allMovies);
   app.get("/api/getAllCategories",Movie.allCategories);
   app.get("/api/getMovie/:id",Movie.getMovie);
+  app.delete('/api/movie/:id', Movie.deleteMovie);
+  app.delete('/api/category/:id', Movie.deleteCategory);
 }
