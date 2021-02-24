@@ -7,7 +7,8 @@ import { navigate } from '@reach/router';
 const BuyersList = () => {
     const Style={
         backgroundColor: '#8c8787',
-        width:"100%"
+        width:"100%",
+        minHeight:"800px",
     }
      // const [loaded, setLoaded] = useState(false);
     //useEffect((e)=>{
@@ -31,7 +32,7 @@ const BuyersList = () => {
         <div style={Style} >
             <br/>
             <br/>
-            <UsersTable />
+            <UsersTable  />
             <HeaderAdmin />
             <Footer/>
         </div>

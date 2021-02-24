@@ -80,23 +80,22 @@ const HeaderAdmin = () => {
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
       <Nav className="mr-auto" navbar>
-        <NavItem>
-          <NavLink    href="/admin/movies" style={{color:'whitesmoke'}}>Add Movie</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink  href="/admin/info" style={{color:'whitesmoke'}}>View Tickets</NavLink>
-        </NavItem>
-        <NavItem>
-        <form onSubmit={handleLogoutClick}>
-            <Button variant="outlined" style={{color:'whitesmoke', border:'none'}}>
-          Log Out
-          </Button>
-          </form>
-        </NavItem>
+        <Button>
+          <NavLink href="/admin/movies" style={{color:'whitesmoke'}}>Add Movie</NavLink>
+        </Button>
+        <Button>
+          <NavLink href="/admin/info" style={{color:'whitesmoke'}}>View Tickets</NavLink>
+        </Button>
       </Nav>
+      {/* <NavItem> */}
+        <form onSubmit={handleLogoutClick}>
+            <button className="buy" style={{color:'whitesmoke',width:"90px"}}>
+          Log Out
+          </button>
+          </form>
+        {/* </NavItem> */}
     </Collapse>
   </Navbar>
-  
     </div>
     )
 }

@@ -35,7 +35,7 @@ const ITEM_HEIGHT = 48;
     }
 }));
 
-const Header = () => {
+const Header = (props) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -73,7 +73,6 @@ const Header = () => {
         height:'70px'
     }
     const style={
-        // backgroundColor:'transparent',
         transition: '1s ease',
         position:'fixed',
         overflow: 'hidden',
@@ -86,17 +85,17 @@ const Header = () => {
     return (
         <div className={classes.root}>
             <Navbar className={classes.appBarTransparent} style={style} light expand="md" className={classes[navRef.current]}>
-            <img style= {imageStyle} src={Logo} alt="logo"/>
+            <NavbarBrand  href="/"  style={{color:'whitesmoke'}}> <img style= {imageStyle} src={Logo} alt="logo"/></NavbarBrand>
         <NavbarBrand  href="/"  style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
+            <Button>
               <NavLink href="#" style={{color:'whitesmoke'}}>About Us</NavLink>
-            </NavItem>
-            <NavItem>
+            </Button>
+            <Button>
               <NavLink href="#" style={{color:'whitesmoke'}}>Contact</NavLink>
-            </NavItem>
+            </Button>
             <Button
         aria-label="more"
         aria-controls="long-menu"
@@ -119,11 +118,9 @@ const Header = () => {
           },
         }}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-            {option}
-          </MenuItem>
-        ))}
+         {props.categories.map((category, idx)=>{
+                return <MenuItem   key={idx} >{category.name}</MenuItem>
+            })}
       </Menu>
       {/* <NavItem>
               <NavLink href="/admin" style={{color:'whitesmoke'}}>Login</NavLink>

@@ -2,6 +2,7 @@ const Admin = require('../controllers/admin.controllers');
 const Movie = require('../controllers/movie.controller');
 const User = require('../controllers/movie.controller');
 const  Category  = require('../controllers/movie.controller');
+//const { authenticate } = require('../config/jwt.config');
 module.exports = app => {
   app.post("/api/register", Admin.register);
   app.get("/api/logout", Admin.logout);
