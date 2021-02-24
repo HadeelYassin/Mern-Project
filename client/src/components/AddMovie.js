@@ -6,7 +6,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
-import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import axios from 'axios';
 
@@ -41,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
 }
 }));
 
-const AddMovie = () => {
+
+const AddMovie = (props) => {
   const [title, setTitle] = useState(""); 
   const [price, setPrice] = useState();
   const[description, setDescription] = useState("")
@@ -51,15 +51,15 @@ const AddMovie = () => {
   const[numberOfSeats, setNumberOfSeats] = useState()
   const [categories, setCategories] = useState([]);
   const [selectedCategory,setSelectedCategory]=useState("")
-  const [loaded, setLoaded] = useState(false);
-
+  
+  
   useEffect(()=>{
       axios.get('http://localhost:8000/api/getAllCategories')
           .then(res=>{
             setCategories(res.data);
               
           });
-  },[loaded])
+  },[])
   const classes = useStyles();
   
   const onSubmitHandler = e => {
@@ -74,13 +74,15 @@ const AddMovie = () => {
         numberOfSeats,
         selectedCategory,
     })
-    .then(res=>setLoaded(!loaded))
+    .then()
     .catch(err=>console.log(err))
 }
   
   return (
+    
     <div className="containerr">
-      <Container   >
+      <div>{ props.categories}</div>
+      <Container  fixed maxWidth="sm" >
       <div className={classes.title} >{"Add Movie"}</div>
     <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
       <Grid item xs={12} ><TextField onChange={(e)=>setTitle(e.target.value)} id="standard-basic" label="Title" fullWidth className={classes.textField}/></Grid>
@@ -93,6 +95,7 @@ const AddMovie = () => {
                 return <MenuItem   key={idx} value={category._id}>{category.name}</MenuItem>
             })}
         </Select>
+       
       </Grid>
       <Grid item xs={12}><TextField id="standard-multiline-flexible" onChange={(e)=>setDescription(e.target.value)} label="Description" multiline fullWidth rowsMax={10} className={classes.textField}/></Grid>
       <Grid item xs={12}><TextField id="standard-basic" onChange={(e)=>setImageUrl(e.target.value)} label="Poster url" fullWidth className={classes.textField}/></Grid>

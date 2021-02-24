@@ -9,7 +9,12 @@ const AdminSchema = new mongoose.Schema({
     type: String,
     enum: ["admin"],
     required: [true, "Password is required"]
-  }
+  },
+  role: {
+    type: String,
+    default: 'admin',
+    enum: [ "admin"]
+   },
 }, { timestamps: true });
 
 

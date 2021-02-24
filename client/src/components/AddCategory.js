@@ -42,17 +42,18 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
   
-const AddCategory = () => {
+const AddCategory = (props) => {
     const [name, setName] = useState("");
     const [selectedCategory,setSelectedCategory]=useState("Categories")
     const [loaded, setLoaded] = useState(false);
     const classes = useStyles();
     const onSubmitHandler = e => {
         e.preventDefault();
+        
         axios.post('http://localhost:8000/api/createcategory', {
             name
         })
-        .then(res=>console.log(res))
+        .then(res=>{props.onNewCategory(name)})
         .catch(err=>console.log(err))
     }
 
