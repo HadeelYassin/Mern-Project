@@ -2,12 +2,9 @@ import React,{useState,navigate, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
-import Button from '@material-ui/core/Button'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,12 +27,13 @@ const useStyles = makeStyles((theme) => ({
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      width: 300,
+      width: 200,
     },
     title:{
-        ...theme.typography.button,
+        // ...theme.typography.button,
         backgroundColor: theme.palette.text.disabled,
         padding: theme.spacing(1),
+        minWidth:"10ch"
         
     }
   }));
@@ -58,10 +56,10 @@ const AddCategory = (props) => {
     return (
         <div className="containerr">
             
-            <Container  fixed maxWidth="sm" >
-            <div className={classes.title} >Add Category</div>
+            <Container >
+            <Grid ><div className={classes.title} fullWidth >Add Category</div></Grid>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
-                <Grid item xs={12} ><TextField value={name} onChange={(e)=>setName(e.target.value)} id="standard-basic" label="Add Category" fullWidth className={classes.textField}/></Grid>
+                <Grid item xs={12} ><TextField value={name} onChange={(e)=>setName(e.target.value)} id="standard-basic" label="Add Category" className={classes.textField}/></Grid>
                 <Grid item xs={12}><button type="submit"className="buy">Add</button></Grid>
             </form>
             </Container>
