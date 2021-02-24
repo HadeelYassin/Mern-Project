@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import cx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -10,6 +10,7 @@ import { red } from '@material-ui/core/colors';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import '../styles/buyTicket.css';
+import axios from 'axios';
 
 
 const lightColor = 'white';
@@ -146,6 +147,41 @@ export const BuyTicket = () => {
     rightColor: lightColor,
     tearColor: 'black',
   });
+  const[firstName, setFirstName] = useState("")
+  const[lastName, setLastName] = useState("")
+  const[phoneNumber, setPhoneNumber] = useState("")
+  const[numberOfTickets, setNumberOfTickets] = useState("")
+  const [errors, setErrors] = useState([])
+  const[errors1,setErrors1] = useState({
+    fname:{
+      type:'required'
+    },
+    lname:{
+      type:'required'
+    }
+  })
+
+  const onSubmitHandler = e => {
+    e.preventDefault();
+    axios.post('http://localhost:8000/api/createuser', {
+      firstName,
+      lastName,
+      phoneNumber,
+      numberOfTickets,
+    })
+    .then()
+    .catch(err =>{
+      const errorResponse = err.response.data.errors; // Get the errors from err.response.data
+      const errorArr = []; // Define a temp error array to push the messages in
+      for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
+          errorArr.push(errorResponse[key].message)
+      }
+      // Set Errors
+      setErrors(errorArr);
+  })
+}
+
+
 
   return (
     <Card className={styles.card} elevation={0}>
@@ -172,14 +208,21 @@ export const BuyTicket = () => {
           <h2 className={styles.heading}>Avengers</h2>
           <h5 className={styles.category}>Category</h5>
         </div>
-        <form className={classes.root} Validate>
+        <form className={classes.root} Validate onSubmit={onSubmitHandler}>
           <ThemeProvider theme={theme}>
+          {
+                            errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)
+                      }
             <TextField
               className={classes.margin}
               label="First Name"
               variant="outlined"
               id="mui-theme-provider-outlined-input"
+              onChange={(e)=>setFirstName(e.target.value)}
             />
+            {errors.fname && errors.fname.type === "required" && (
+  <div className="error">You must enter your name</div>
+)}
             <TextField
               disabled
               className={classes.margin}
@@ -192,6 +235,7 @@ export const BuyTicket = () => {
               label="Last Name"
               variant="outlined"
               id="mui-theme-provider-outlined-input"
+              onChange={(e)=>setLastName(e.target.value)}
             />
             <TextField
               className={classes.margin}
@@ -199,12 +243,14 @@ export const BuyTicket = () => {
               label="Tickets Number"
               type="number"
               variant="outlined"
+              onChange={(e)=>setNumberOfTickets(e.target.value)}
             />
             <TextField
               className={classes.margin}
               label="Phone Mumber"
               variant="outlined"
               id="mui-theme-provider-outlined-input"
+              onChange={(e)=>setPhoneNumber(e.target.value)}
             />
             <TextField
               disabled
@@ -213,9 +259,9 @@ export const BuyTicket = () => {
               label="Total Price"
               variant="outlined"
             />
-            <ColorButton variant="outlined" color="primary" className={classes.margin} id="mui-theme-provider-outlined-input">
+            <button variant="outlined" color="primary" className={classes.margin} id="mui-theme-provider-outlined-input">
               Book Now
-      </ColorButton>
+      </button>
 <br></br>
 <br></br>
 

@@ -7,8 +7,6 @@ const BuyTicketView = () => {
     return (
         <div>
             <BuyTicket/>
-          
-            <Footer/>
         </div>
     )
 }

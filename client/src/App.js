@@ -16,10 +16,10 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Home path="/"/>
         <Main path="/admin"/>
         <AdminHome path="/login/hi"/>
         <BuyTicketView path="/tickets"/>
-        <Home path="/"/>
         <BuyersList path="/admin/info"/>
        <MoviesAdmin path="/admin/movies"/>
       </Router>
