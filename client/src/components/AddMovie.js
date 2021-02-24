@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 300,
+    width: 200,
   },
   title:{
     ...theme.typography.button,
@@ -80,7 +80,7 @@ const AddMovie = () => {
   
   return (
     <div className="containerr">
-      <Container  fixed maxWidth="sm" >
+      <Container   >
       <div className={classes.title} >{"Add Movie"}</div>
     <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
       <Grid item xs={12} ><TextField onChange={(e)=>setTitle(e.target.value)} id="standard-basic" label="Title" fullWidth className={classes.textField}/></Grid>

@@ -41,18 +41,18 @@ function createData(name, phone, ticket,paid) {
   return { name, phone, ticket ,paid};
 }
 
-const rows = [
-  createData('Amal Ahmad', 5999999, 6.0,false),
-  createData('Basim Freij', 5999999, 9.0,false),
-  createData('Diana Bast', 5999999, 16.0,false),
-  createData('Ekram Suliman',5999999, 3,false),
-  createData('Fatima Hasan', 5999999, 16.0,false),
-  createData('Fadi Hasan', 5999999, 6.0,false),
-  createData('Hasan Mhesen', 5999999, 9.0,false),
-  createData('Eclair', 5999999, 16.0,false),
-  createData('Cupcake', 5999999, 3,false),
-  createData('Gingerbread', 5999999, 16.0,false),
-];
+// const rows = [
+//   createData('Amal Ahmad', 5999999, 6.0,false),
+//   createData('Basim Freij', 5999999, 9.0,false),
+//   createData('Diana Bast', 5999999, 16.0,false),
+//   createData('Ekram Suliman',5999999, 3,false),
+//   createData('Fatima Hasan', 5999999, 16.0,false),
+//   createData('Fadi Hasan', 5999999, 6.0,false),
+//   createData('Hasan Mhesen', 5999999, 9.0,false),
+//   createData('Eclair', 5999999, 16.0,false),
+//   createData('Cupcake', 5999999, 3,false),
+//   createData('Gingerbread', 5999999, 16.0,false),
+// ];
 
 
 const useStyles = makeStyles((theme) => ({
@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 100,
+    minWidth: 400,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -81,13 +81,13 @@ const UsersTable = () => {
     const [selectedMovie,setSelectedMovie]=useState("");
     const [movieId, setMovieId]=useState("");
     const [buyers, setBuyers]=useState([]);
-    const [checked, setChecked] = React.useState(rows.paid);
+    const [checked, setChecked] = React.useState();
+    const [price, setPrice]=useState(0);
 
     useEffect(()=>{
       axios.get('http://localhost:8000/api/getAllMovies')
           .then(res=>{
-            setMovies(res.data);
-              
+            setMovies(res.data); 
           });
   },[])
 
@@ -100,6 +100,7 @@ let x=event.target.value
 console.log(x)
   axios.get('http://localhost:8000/api/getMovie/'+x)
   .then(res=>{
+    setPrice(res.data.price);
   setBuyers(res.data.Buyers);
   });
 }
@@ -107,26 +108,24 @@ console.log(x)
 
     return (
       <div>
-      <div>
-            {buyers.map((buyer, idx)=>{
-                return <p key={idx}>{buyer.firstName}</p>
-            })}
-        </div>
-      <FormControl className={classes.formControl} style={{display:"inline-flex"}}>
-        <InputLabel id="demo-simple-select-label">Movies</InputLabel>
+   
+      <FormControl className={classes.formControl} style={{display:"inline-block"}}>
+        <InputLabel id="demo-simple-select-label" style={{width:"60%"}}>Movies</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           onChange={callRandom}
+          style={{width:"60%"}}
         >
           {movies.map((movie, idx)=>{
                 return <MenuItem   key={idx} value={movie._id} >{movie.title}</MenuItem>
             })}
         </Select>
-        <TextField disabled id="standard-disabled" label="Disabled"  defaultValue={movies.price} />
+        <TextField disabled id="standard-disabled" label="Ticket Price" defaultValue={price} style={{width:"30%",marginLeft:"10px"}} />
       </FormControl>
       
-        <Container  fixed maxWidth="md">
+
+        <Container  fixed maxWidth="md" >
         <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead >
@@ -139,14 +138,14 @@ console.log(x)
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+        {buyers.map((buyer) => (
+            <StyledTableRow >
               <StyledTableCell component="th" scope="row">
-                {row.name}
+               {buyer.firstName} {buyer.lastName}
               </StyledTableCell>
-              <StyledTableCell align="center">{row.phone}</StyledTableCell>
-              <StyledTableCell align="center">{row.ticket}</StyledTableCell>
-              <StyledTableCell align="center">{row.ticket}</StyledTableCell>
+              <StyledTableCell align="center">{buyer.phoneNumber}</StyledTableCell>
+              <StyledTableCell align="center">{buyer.numberOfTickets}</StyledTableCell>
+              <StyledTableCell align="center">bbb</StyledTableCell>
               <Checkbox
               style={{color:'red'}}
                 checked={checked}
@@ -154,7 +153,7 @@ console.log(x)
                 inputProps={{ 'aria-label': 'primary checkbox' }}
               />
             </StyledTableRow>
-          ))}
+        ))}
         </TableBody>
       </Table>
     </TableContainer>

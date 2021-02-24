@@ -16,8 +16,11 @@ const MoviesAdmin = () => {
             <br/>
             <br/>
             <br/>
-            <AddCategory/>
+            <div style={{display:"inline-flex", padding:"20px"}} >
             <AddMovie/>
+            <AddCategory/>
+            
+            </div>
             <HeaderAdmin/>
             
             <Footer/>
