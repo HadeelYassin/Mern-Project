@@ -118,7 +118,6 @@ const Header = (props) => {
           },
         }}
       >
-         
          {props.categories.map((category, idx)=>{
                 return <MenuItem   key={idx} >{category.name}</MenuItem>
             })}

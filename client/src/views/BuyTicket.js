@@ -7,7 +7,7 @@ const BuyTicket = () => {
     return (
         <div>
             <BuyTicketsComponent/>
-            <Header/>
+          
             <Footer/>
         </div>
     )
