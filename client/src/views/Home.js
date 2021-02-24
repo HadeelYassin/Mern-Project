@@ -19,7 +19,6 @@ const Home = () => {
             });
     },[])
     return (
-        
         <div style={Style}>
             <Video/>
             <MoviesList/>

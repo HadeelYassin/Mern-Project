@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 200,
+    minWidth: 400,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -88,22 +88,21 @@ const UsersTable = () => {
 
   return (
     <div>
-
-      <FormControl className={classes.formControl} >
-        <InputLabel id="demo-simple-select-label">Movies</InputLabel>
+   
+      <FormControl className={classes.formControl} style={{display:"inline-block"}}>
+        <InputLabel id="demo-simple-select-label" style={{width:"60%"}}>Movies</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           onChange={callRandom}
-
+          style={{width:"60%"}}
         >
           {movies.map((movie, idx) => {
             return <MenuItem key={idx} value={movie._id} >{movie.title}</MenuItem>
           })}
         </Select>
-        <TextField disabled id="standard-disabled" label={price} defaultValue={movies.price} />
+        <TextField disabled id="standard-disabled" label="Ticket Price" value={price} defaultValue="0" style={{width:"25%",marginLeft:"10px"}} />
       </FormControl>
-
 
       <Container fixed maxWidth="md" >
         <TableContainer component={Paper}>

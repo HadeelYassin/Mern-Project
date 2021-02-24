@@ -5,7 +5,6 @@ import '../styles/movies.css';
 // import { Button } from '@material-ui/core';
 
 
-
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const Movies = ({ poster_path, title, vote_average, overview, video, release_date }) => {
 //   const deleteMovie = (movieId) => {
@@ -16,7 +15,6 @@ const Movies = ({ poster_path, title, vote_average, overview, video, release_dat
 // }
 
   return (
-
     <div className="movie" >
       {/* <div class="movie-info">
         <h4>{title}</h4>

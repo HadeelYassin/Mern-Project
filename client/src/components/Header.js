@@ -73,7 +73,6 @@ const Header = (props) => {
         height:'70px'
     }
     const style={
-        // backgroundColor:'transparent',
         transition: '1s ease',
         position:'fixed',
         overflow: 'hidden',
@@ -91,12 +90,12 @@ const Header = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
+            <Button>
               <NavLink href="#" style={{color:'whitesmoke'}}>About Us</NavLink>
-            </NavItem>
-            <NavItem>
+            </Button>
+            <Button>
               <NavLink href="#" style={{color:'whitesmoke'}}>Contact</NavLink>
-            </NavItem>
+            </Button>
             <Button
         aria-label="more"
         aria-controls="long-menu"
