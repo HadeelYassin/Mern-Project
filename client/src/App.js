@@ -19,10 +19,10 @@ function App() {
       <Router>
         <Main path="/admin"/>
         <AdminHome path="/login/hi"/>
-        <BuyTicket path="/new"/>
+        <BuyTicket path="/ticket"/>
         <Home path="/"/>
         <BuyersList path="/admin/info"/>
-        <MoviesAdmin path="/admin/movies"/>
+       <MoviesAdmin path="/admin/movies"/>
       </Router>
     </div>
   );
