@@ -137,7 +137,6 @@ const Header = (props) => {
             })}
       </Menu>
       <NavItem>
-              <NavLink href="/admin" style={{color:'whitesmoke'}}>Login</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
