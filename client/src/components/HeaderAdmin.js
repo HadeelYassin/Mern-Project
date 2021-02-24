@@ -80,7 +80,7 @@ const HeaderAdmin = () => {
       <Collapse isOpen={isOpen} navbar>
       <Nav className="mr-auto" navbar>
         <NavItem>
-          <NavLink   style={{color:'whitesmoke'}}>Add Movie</NavLink>
+          <NavLink href="/admin/movies"  style={{color:'whitesmoke'}}>Add Movie</NavLink>
         </NavItem>
         <NavItem>
           <NavLink   style={{color:'whitesmoke'}}>View Tickets</NavLink>

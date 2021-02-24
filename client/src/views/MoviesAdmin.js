@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import AddCategory from '../components/AddCategory'
 import AddMovie from '../components/AddMovie'
 import Footer from '../components/Footer'
@@ -9,6 +9,7 @@ const MoviesAdmin = () => {
         backgroundColor: '#8c8787',
         width:"100%"
     }
+  
     return (
         <div style={Style} >
             <br/>
@@ -18,7 +19,7 @@ const MoviesAdmin = () => {
             <br/>
             {/* <AddCategory/> */}
             <AddMovie/>
-            <HeaderAdmin/>
+             <HeaderAdmin/>
             
             <Footer/>
         </div>
