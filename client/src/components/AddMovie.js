@@ -98,11 +98,7 @@ const AddMovie = (props) => {
                 return <MenuItem   key={idx} value={category._id}>{category.name}</MenuItem>
             })}
         </Select>
-        <Select>
-          {props.categoriess.map((category, indx)=>{
-            return <MenuItem>{category.name}</MenuItem>
-          })}
-        </Select>
+       
       </Grid>
       <Grid item xs={12}><TextField id="standard-multiline-flexible" onChange={(e)=>setDescription(e.target.value)} label="Description" multiline fullWidth rowsMax={10} className={classes.textField}/></Grid>
       <Grid item xs={12}><TextField id="standard-basic" onChange={(e)=>setImageUrl(e.target.value)} label="Poster url" fullWidth className={classes.textField}/></Grid>
