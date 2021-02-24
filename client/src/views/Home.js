@@ -1,28 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import Video from '../components/Video';
+import Movies from '../components/Movies';
 import MoviesList from '../components/MoviesList';
-import axios from 'axios';
+import Video from '../components/Video';
 
 const Home = () => {
     const Style={
         backgroundColor: '#202020'
     }
-    const [category, setCategory] = useState([]);
-    const [loaded, setLoaded] = useState(false);
-    useEffect(()=>{
-        axios.get('http://localhost:8000/api/getAllCategories')
-            .then(res=>{
-                setCategory(res.data);
-                setLoaded(true);
-            });
-    },[])
     return (
+        
         <div style={Style}>
             <Video/>
             <MoviesList/>
-            {loaded &&<Header categories={category} />}    
+            <Header/>    
             <Footer/>
         </div>
     )

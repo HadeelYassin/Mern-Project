@@ -1,4 +1,4 @@
-import React, { useState, navigate, useEffect } from 'react'
+import React from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,16 +12,13 @@ import Container from '@material-ui/core/Container';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Checkbox from '@material-ui/core/Checkbox';
-import axios from 'axios';
-import TextField from '@material-ui/core/TextField';
 
 
 
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.error.dark,
+    backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
   },
   body: {
@@ -37,108 +34,93 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData('Amal Ahmad', 5999999, 6.0),
+  createData('Basim Freij', 5999999, 9.0),
+  createData('Diana Bast', 5999999, 16.0),
+  createData('Ekram Suliman',5999999, 3),
+  createData('Fatima Hasan', 5999999, 16.0),
+  createData('Fadi Hasan', 5999999, 6.0),
+  createData('Hasan Mhesen', 5999999, 9.0),
+  createData('Eclair', 5999999, 16.0),
+  createData('Cupcake', 5999999, 3),
+  createData('Gingerbread', 5999999, 16.0),
+];
+
+
 const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
+  // root: {
+  //   '& .MuiTextField-root': {
+  //     margin: theme.spacing(1),
+  //     width: '25ch',
+  //   },
+  // },
   table: {
     minWidth: 500,
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 400,
+    minWidth: 300,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
 }));
-
+  
 
 const UsersTable = () => {
-  const classes = useStyles();
-  const [movies, setMovies] = useState([]);
-  const [buyers, setBuyers] = useState([]);
-  const [checked, setChecked] = React.useState();
-  const [price, setPrice] = useState();
-  const numofTickets=0;
-  let totalPrice=price*numofTickets;
-  useEffect(() => {
-    axios.get('http://localhost:8000/api/getAllMovies')
-      .then(res => {
-        setMovies(res.data);
+    const classes = useStyles();
+    const [age, setAge] = React.useState('');
 
-      });
-  }, [])
-
-  const handleChange1 = (event) => {
-    setChecked(event.target.checked);
+  const handleChange = (event) => {
+    setAge(event.target.value);
   };
-  const callRandom = (event) => {
-    let x = event.target.value
-    axios.get('http://localhost:8000/api/getMovie/' + x)
-      .then(res => {
-        setPrice(res.data.price);
-        setBuyers(res.data.Buyers);
-      });
-  }
 
-
-  return (
-    <div>
-   
-      <FormControl className={classes.formControl} style={{display:"inline-block"}}>
-        <InputLabel id="demo-simple-select-label" style={{width:"60%"}}>Movies</InputLabel>
+    return (
+      <div>
+      <FormControl className={classes.formControl}>
+        <InputLabel id="demo-simple-select-label">Movies</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          onChange={callRandom}
-          style={{width:"60%"}}
+          value={age}
+          onChange={handleChange}
         >
-          {movies.map((movie, idx) => {
-            return <MenuItem key={idx} value={movie._id} >{movie.title}</MenuItem>
-          })}
+          <MenuItem value={'Avengers'}>Avengers</MenuItem>
+          <MenuItem value={'Quiet Place'}>Quiet Place</MenuItem>
+          <MenuItem value={'Purge'}>Purge</MenuItem>
         </Select>
-        <TextField disabled id="standard-disabled" label="Ticket Price" value={price} defaultValue="0" style={{width:"25%",marginLeft:"10px"}} />
       </FormControl>
-
-      <Container fixed maxWidth="md" >
+        <Container  fixed maxWidth="md">
         <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="customized table">
-            <TableHead >
-              <TableRow>
-                <StyledTableCell>Name</StyledTableCell>
-                <StyledTableCell align="center">Phone Number</StyledTableCell>
-                <StyledTableCell align="center"># Tickets&nbsp;</StyledTableCell>
-                <StyledTableCell align="center">Total Price&nbsp;</StyledTableCell>
-                <StyledTableCell align="center">Paid&nbsp;</StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {buyers.map((buyer, index) => (
-                <StyledTableRow key={index}>
-                  <StyledTableCell component="th" scope="row">
-                    {buyer.firstName} {buyer.lastName}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">{buyer.phoneNumber}</StyledTableCell>
-                  <StyledTableCell align="center">{buyer.numberOfTickets}</StyledTableCell>
-                  <StyledTableCell align="center">{buyer.numberOfTickets*price}</StyledTableCell>
-                  <Checkbox
-                    style={{ color: 'red' }}
-                    checked={checked}
-                    onChange={handleChange1}
-                    inputProps={{ 'aria-label': 'primary checkbox' }}
-                  />
-                </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Container>
+      <Table className={classes.table} aria-label="customized table">
+        <TableHead >
+          <TableRow>
+            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="center">Phone Number</StyledTableCell>
+            <StyledTableCell align="center"># Tickets&nbsp;</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <StyledTableRow key={row.name}>
+              <StyledTableCell component="th" scope="row">
+                {row.name}
+              </StyledTableCell>
+              <StyledTableCell align="center">{row.calories}</StyledTableCell>
+              <StyledTableCell align="center">{row.fat}</StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+    </Container>
     </div>
-  )
+    )
 }
 
 export default UsersTable

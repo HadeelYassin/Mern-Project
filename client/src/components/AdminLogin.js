@@ -1,6 +1,5 @@
 import React, {  useState } from 'react'
 import { Link,navigate } from '@reach/router';
-import LockIcon from '@material-ui/icons/Lock';
 
 import axios from 'axios';
 
@@ -13,29 +12,13 @@ import {
 } from '@material-ui/core';
 const styles = {
     paper: {
-        width: "40%", padding: "1rem",
-        margin: 0,
-        position: 'absolute',
-        top:' 50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
+        width: "20rem", padding: "1rem", marginTop: "10%"
     },
     input: {
-        margin: "1rem"
+        marginBottom: "1rem"
     },
-    
-    iconStyle:
-    {color:'#dd1818'},
-    btnstyle:{
-        margin: '10px 0'
-    },
-    divStyle:{
-        background:'#333333', /* fallback for old browsers */
-        background: '-webkit-linear-gradient(to right, #333333, #dd1818)', /* Chrome 10-25, Safari 5.1-6 */
-        background: 'linear-gradient(to right, #333333, #dd1818)',
-        position: 'relative',
-        height: '560px',
-        padding:0,
+    button: {
+        width: "100%"
     }
 }
 export default function LoginForm() {
@@ -52,7 +35,7 @@ export default function LoginForm() {
             password,
             })
                 .then(res=> {if(res.data.errors == null)
-                    { navigate('/admin/info') }else{
+                    { navigate('/login/hi') }else{
                         console.log(res.data.errors);
                     }
 
@@ -69,9 +52,8 @@ export default function LoginForm() {
                 })
     }
     return (
-        <div style={styles.divStyle}>
-             <Paper elevation={4} style={styles.paper}>
-             <LockIcon  style={styles.iconStyle} fontSize="large"/>
+        <center>
+        <Paper elevation={3} style={styles.paper}>
             <h2>Login Admin</h2>
             <form onSubmit={onSubmitHandler}>
             {errors.map((err, index) => <p key={index}>{err}</p>)}
@@ -86,11 +68,11 @@ export default function LoginForm() {
                 </FormControl>
                 <br/>
                
-                <Button type='submit'   variant="contained" style={styles.btnstyle} >Sign in</Button>
+                <Button type="submit" variant="contained" color="Secondary">
+                    Login
+                </Button>
             </form>
         </Paper>
-       
-        </div>
-       
+        </center>
     )
 }
