@@ -7,6 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
+import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   }));
   
 const AddCategory = () => {
-    const [name, setName] = useState([]);
+    const [name, setName] = useState("");
     const [selectedCategory,setSelectedCategory]=useState("Categories")
     const [loaded, setLoaded] = useState(false);
     const classes = useStyles();
@@ -49,7 +50,7 @@ const AddCategory = () => {
         axios.post('http://localhost:8000/api/createcategory', {
             name
         })
-        .then(() => navigate("/"))
+        .then(res=>console.log(res))
         .catch(err=>console.log(err))
     }
 
@@ -57,10 +58,10 @@ const AddCategory = () => {
         <div className="containerr">
             
             <Container  fixed maxWidth="sm" >
-            <div className={classes.title} >{"Add Category"}</div>
+            <div className={classes.title} >Add Category</div>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
-                <Grid item xs={12} ><TextField onChange={(e)=>setName(e.target.value)} id="standard-basic" label="Add Category" fullWidth className={classes.textField}/></Grid>
-                <Grid item xs={12}><button className="buy">Add</button></Grid>
+                <Grid item xs={12} ><TextField value={name} onChange={(e)=>setName(e.target.value)} id="standard-basic" label="Add Category" fullWidth className={classes.textField}/></Grid>
+                <Grid item xs={12}><button type="submit"className="buy">Add</button></Grid>
             </form>
             </Container>
         </div>

@@ -88,7 +88,7 @@ const HeaderAdmin = () => {
         </NavItem>
         <NavItem>
         <form onSubmit={handleLogoutClick}>
-            <Button variant="outlined" style={{color:'whitesmoke'}}>
+            <Button variant="outlined" style={{color:'whitesmoke', border:'none'}}>
           Log Out
           </Button>
           </form>

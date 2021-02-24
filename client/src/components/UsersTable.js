@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,navigate, useEffect} from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -13,7 +13,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
-
+import axios from 'axios';
 
 
 
@@ -75,16 +75,21 @@ const useStyles = makeStyles((theme) => ({
 
 const UsersTable = () => {
     const classes = useStyles();
-    const [movie, setMovie] = React.useState('');
+    const [movies, setMovies] = useState([]);
     const [checked, setChecked] = React.useState(rows.paid);
 
+    useEffect(()=>{
+      axios.get('http://localhost:8000/api/getAllMovies')
+          .then(res=>{
+            setMovies(res.data);
+              
+          });
+  },[])
   const handleChange1 = (event) => {
     setChecked(event.target.checked);
   };
 
-  const handleChange = (event) => {
-    setMovie(event.target.value);
-  };
+ 
 
     return (
       <div>
@@ -93,12 +98,11 @@ const UsersTable = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={movie}
-          onChange={handleChange}
+         
         >
-          <MenuItem value={'Avengers'}>Avengers</MenuItem>
-          <MenuItem value={'Quiet Place'}>Quiet Place</MenuItem>
-          <MenuItem value={'Purge'}>Purge</MenuItem>
+          {movies.map((movie, idx)=>{
+                return <MenuItem   key={idx} value={movie._id}>{movie.title}</MenuItem>
+            })}
         </Select>
       </FormControl>
         <Container  fixed maxWidth="md">

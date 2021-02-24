@@ -3,10 +3,10 @@ const { User } = require('../models/user.model');
 const { Category } = require('../models/category.model');
 
 module.exports.createMovie = (request, response) => {
-    const { title, description,imageUrl, totalnumberOfTickets,trailerUrl,price,showingDate,numberOfSeats } = request.body;
+    const { title, description,imageUrl, totalnumberOfTickets,trailerUrl,price,showingDate,numberOfSeats,selectedCategory } = request.body;
     Movie.create({ title, description,imageUrl, totalnumberOfTickets,trailerUrl,price,showingDate,numberOfSeats })
         .then(movie=> {
-            Category.findOneAndUpdate({'_id':'60341a41c111dc262830d102'},{ 
+            Category.findOneAndUpdate({'_id':selectedCategory},{ 
                 $push:{Movies: movie}
              }).catch(err => response.json(err));
              return response.json(movie)

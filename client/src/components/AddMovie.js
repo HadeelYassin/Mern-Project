@@ -55,9 +55,9 @@ const AddMovie = () => {
       axios.get('http://localhost:8000/api/getAllCategories')
           .then(res=>{
             setCategories(res.data);
-              setLoaded(true);
+              
           });
-  },[])
+  },[loaded])
   const classes = useStyles();
   
 
@@ -70,9 +70,10 @@ const AddMovie = () => {
         imageUrl,
         trailerUrl,
         showingDate,
-        numberOfSeats
+        numberOfSeats,
+        selectedCategory,
     })
-    .then(() => navigate("/"))
+    .then(res=>setLoaded(!loaded))
     .catch(err=>console.log(err))
 }
   
@@ -84,9 +85,9 @@ const AddMovie = () => {
       <Grid item xs={12} ><TextField onChange={(e)=>setTitle(e.target.value)} id="standard-basic" label="Title" fullWidth className={classes.textField}/></Grid>
       <Grid item xs={12}><InputLabel id="demo-simple-select-label">Category</InputLabel>
     
-      <Select labelId="demo-simple-select-label" id="demo-simple-select" fullWidth className={classes.textField} onChange={(e)=>setSelectedCategory(e.target.value)} >
+      <Select onChange={(e)=>setSelectedCategory(e.target.value)} >
             {categories.map((category, idx)=>{
-                return <MenuItem fullWidth  className={classes.textField} key={idx} value={category._id}>{category.Name}</MenuItem>
+                return <MenuItem   key={idx} value={category._id}>{category.Name}</MenuItem>
             })}
         </Select>
       </Grid>
