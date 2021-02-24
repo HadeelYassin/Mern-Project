@@ -101,9 +101,8 @@ const UsersTable = () => {
             return <MenuItem key={idx} value={movie._id} >{movie.title}</MenuItem>
           })}
         </Select>
-        <TextField disabled id="standard-disabled" label="Ticket Price" defaultValue={price} style={{width:"30%",marginLeft:"10px"}} />
+        <TextField disabled id="standard-disabled" label="Ticket Price" value={price} defaultValue="0" style={{width:"25%",marginLeft:"10px"}} />
       </FormControl>
-
 
       <Container fixed maxWidth="md" >
         <TableContainer component={Paper}>

@@ -22,11 +22,9 @@ const MoviesAdmin = () => {
             <br/>
             <br/>
             <br/>
-            
             <div style={{display:"inline-flex"}} >
             <AddMovie/>
             <AddCategory/>
-            
             </div>
             <HeaderAdmin/>
             

@@ -9,7 +9,6 @@ const Home = () => {
         backgroundColor: '#202020'
     }
     return (
-        
         <div style={Style}>
             <Video/>
             <MoviesList/>
