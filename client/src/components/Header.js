@@ -85,7 +85,7 @@ const Header = () => {
     return (
         <div className={classes.root}>
             <Navbar className={classes.appBarTransparent} style={style} light expand="md" className={classes[navRef.current]}>
-            <img style= {imageStyle} src={Logo} alt="logo"/>
+            <NavbarBrand  href="/"  style={{color:'whitesmoke'}}> <img style= {imageStyle} src={Logo} alt="logo"/></NavbarBrand>
         <NavbarBrand  href="/"  style={{color:'whitesmoke'}}>MovieTime</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

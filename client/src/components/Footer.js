@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3, 2),
      marginTop: 'auto',
     backgroundColor:'transparent',
-    position:'fixed',
+    position:'sticky',
     bottom:0,
     minWidth:"100%"
   },
@@ -47,9 +47,9 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
     const classes = useStyles();
     return (
-        <div style={{align:"center"}} >
+        <div  >
       <footer className={classes.footer}>
-        <Container minWidth="sm" style={{ color: 'white' }}>
+        <Container  style={{ color: 'white' }}>
             <Copyright />
             <FacebookIcon />
             <TwitterIcon />

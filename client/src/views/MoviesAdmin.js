@@ -27,7 +27,6 @@ const MoviesAdmin = () => {
             <AddCategory/>
             </div>
             <HeaderAdmin/>
-            
             <Footer/>
         </div>
     )
