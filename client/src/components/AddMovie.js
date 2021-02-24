@@ -6,7 +6,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
-import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
 
@@ -44,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const AddMovie = () => {
+const AddMovie = (props) => {
   const [title, setTitle] = useState(""); 
   const [price, setPrice] = useState();
   const[description, setDescription] = useState("")
@@ -54,7 +53,7 @@ const AddMovie = () => {
   const[numberOfSeats, setNumberOfSeats] = useState()
   const [categories, setCategories] = useState([]);
   const [selectedCategory,setSelectedCategory]=useState("")
-  const [loaded, setLoaded] = useState(false);
+  
   
   useEffect(()=>{
       axios.get('http://localhost:8000/api/getAllCategories')
@@ -62,7 +61,7 @@ const AddMovie = () => {
             setCategories(res.data);
               
           });
-  },[loaded])
+  },[])
   const classes = useStyles();
   
 
@@ -78,12 +77,14 @@ const AddMovie = () => {
         numberOfSeats,
         selectedCategory,
     })
-    .then(res=>setLoaded(!loaded))
+    .then()
     .catch(err=>console.log(err))
 }
   
   return (
+    
     <div className="containerr">
+      <div>{ props.categories}</div>
       <Container  fixed maxWidth="sm" >
       <div className={classes.title} >{"Add Movie"}</div>
     <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
@@ -96,6 +97,11 @@ const AddMovie = () => {
             {categories.map((category, idx)=>{
                 return <MenuItem   key={idx} value={category._id}>{category.name}</MenuItem>
             })}
+        </Select>
+        <Select>
+          {props.categories.map((category, indx)=>{
+            return <MenuItem>{category.name}</MenuItem>
+          })}
         </Select>
       </Grid>
       <Grid item xs={12}><TextField id="standard-multiline-flexible" onChange={(e)=>setDescription(e.target.value)} label="Description" multiline fullWidth rowsMax={10} className={classes.textField}/></Grid>

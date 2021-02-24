@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
   
-const AddCategory = () => {
+const AddCategory = (props) => {
     const [name, setName] = useState("");
     const [selectedCategory,setSelectedCategory]=useState("Categories")
     const [loaded, setLoaded] = useState(false);
