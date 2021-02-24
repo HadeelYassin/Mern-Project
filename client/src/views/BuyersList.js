@@ -28,9 +28,11 @@ const BuyersList = () => {
        // }, [])
     
     return (
-         <div>
-           
-           <UsersTable />
+        <div style={Style} >
+            <br/>
+            <br/>
+          
+            <UsersTable />
             <HeaderAdmin />
             <Footer/>
         </div>

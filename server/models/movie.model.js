@@ -27,7 +27,10 @@ const MovieSchema = new mongoose.Schema({
         required: [true, "Price is required"]
     },
     showingDate: { type: Date, min: Date.now },
-
+    numberOfSeats:{
+        type: String,
+        required: [true, "Number Of Seats is required"]
+    },
     Buyers: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 
 }, { timestamps: true });

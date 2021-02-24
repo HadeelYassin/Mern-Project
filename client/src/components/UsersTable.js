@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,navigate, useEffect} from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -13,6 +13,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
+import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
 
 
 
@@ -39,18 +41,18 @@ function createData(name, phone, ticket,paid) {
   return { name, phone, ticket ,paid};
 }
 
-const rows = [
-  createData('Amal Ahmad', 5999999, 6.0,false),
-  createData('Basim Freij', 5999999, 9.0,false),
-  createData('Diana Bast', 5999999, 16.0,false),
-  createData('Ekram Suliman',5999999, 3,false),
-  createData('Fatima Hasan', 5999999, 16.0,false),
-  createData('Fadi Hasan', 5999999, 6.0,false),
-  createData('Hasan Mhesen', 5999999, 9.0,false),
-  createData('Eclair', 5999999, 16.0,false),
-  createData('Cupcake', 5999999, 3,false),
-  createData('Gingerbread', 5999999, 16.0,false),
-];
+// const rows = [
+//   createData('Amal Ahmad', 5999999, 6.0,false),
+//   createData('Basim Freij', 5999999, 9.0,false),
+//   createData('Diana Bast', 5999999, 16.0,false),
+//   createData('Ekram Suliman',5999999, 3,false),
+//   createData('Fatima Hasan', 5999999, 16.0,false),
+//   createData('Fadi Hasan', 5999999, 6.0,false),
+//   createData('Hasan Mhesen', 5999999, 9.0,false),
+//   createData('Eclair', 5999999, 16.0,false),
+//   createData('Cupcake', 5999999, 3,false),
+//   createData('Gingerbread', 5999999, 16.0,false),
+// ];
 
 
 const useStyles = makeStyles((theme) => ({
@@ -75,33 +77,56 @@ const useStyles = makeStyles((theme) => ({
 
 const UsersTable = () => {
     const classes = useStyles();
-    const [movie, setMovie] = React.useState('');
-    const [checked, setChecked] = React.useState(rows.paid);
+    const [movies, setMovies] = useState([]);
+    const [selectedMovie,setSelectedMovie]=useState("");
+    const [movieId, setMovieId]=useState("");
+    const [buyers, setBuyers]=useState([]);
+    const [checked, setChecked] = React.useState();
+    const [price, setPrice]=useState(0);
+
+    useEffect(()=>{
+      axios.get('http://localhost:8000/api/getAllMovies')
+          .then(res=>{
+            setMovies(res.data);
+              
+          });
+  },[])
 
   const handleChange1 = (event) => {
     setChecked(event.target.checked);
   };
-
-  const handleChange = (event) => {
-    setMovie(event.target.value);
-  };
+const callRandom=(event)=>{
+  console.log("++++++")
+let x=event.target.value
+console.log(x)
+  axios.get('http://localhost:8000/api/getMovie/'+x)
+  .then(res=>{
+    setPrice(res.data.price);
+  setBuyers(res.data.Buyers);
+  });
+}
+ 
 
     return (
       <div>
+   
       <FormControl className={classes.formControl} >
         <InputLabel id="demo-simple-select-label">Movies</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={movie}
-          onChange={handleChange}
+          onChange={callRandom}
+         
         >
-          <MenuItem value={'Avengers'}>Avengers</MenuItem>
-          <MenuItem value={'Quiet Place'}>Quiet Place</MenuItem>
-          <MenuItem value={'Purge'}>Purge</MenuItem>
+          {movies.map((movie, idx)=>{
+                return <MenuItem   key={idx} value={movie._id} >{movie.title}</MenuItem>
+            })}
         </Select>
+        <TextField disabled id="standard-disabled" label={price} defaultValue={movies.price} />
       </FormControl>
-        <Container  fixed maxWidth="md">
+      
+
+        <Container  fixed maxWidth="md" >
         <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead >
@@ -109,17 +134,19 @@ const UsersTable = () => {
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell align="center">Phone Number</StyledTableCell>
             <StyledTableCell align="center"># Tickets&nbsp;</StyledTableCell>
+            <StyledTableCell align="center">Total Price&nbsp;</StyledTableCell>
             <StyledTableCell align="center">Paid&nbsp;</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+        {buyers.map((buyer) => (
+            <StyledTableRow >
               <StyledTableCell component="th" scope="row">
-                {row.name}
+               {buyer.firstName} {buyer.lastName}
               </StyledTableCell>
-              <StyledTableCell align="center">{row.phone}</StyledTableCell>
-              <StyledTableCell align="center">{row.ticket}</StyledTableCell>
+              <StyledTableCell align="center">{buyer.phoneNumber}</StyledTableCell>
+              <StyledTableCell align="center">{buyer.numberOfTickets}</StyledTableCell>
+              <StyledTableCell align="center">bbb</StyledTableCell>
               <Checkbox
               style={{color:'red'}}
                 checked={checked}
@@ -127,7 +154,7 @@ const UsersTable = () => {
                 inputProps={{ 'aria-label': 'primary checkbox' }}
               />
             </StyledTableRow>
-          ))}
+        ))}
         </TableBody>
       </Table>
     </TableContainer>

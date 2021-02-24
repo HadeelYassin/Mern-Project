@@ -17,7 +17,7 @@ const MoviesAdmin = () => {
             <br/>
             <br/>
             <br/>
-            {/* <AddCategory/> */}
+            <AddCategory/>
             <AddMovie/>
              <HeaderAdmin/>
             
