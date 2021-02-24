@@ -5,6 +5,7 @@ const  Category  = require('../controllers/movie.controller');
 module.exports = app => {
   app.post("/api/register", Admin.register);
   app.get("/api/logout", Admin.logout);
+  app.get('/api/admin',Admin.getAdmin);
   app.post("/api/createmovie",Movie.createMovie);
   app.post("/api/createuser",User.createUser);
   app.post("/api/createcategory",Movie.createCategory);
