@@ -13,7 +13,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="inherit">
       {'Copyright © '}
-      <Link color="red" href="/">
+      <Link color="inherit" href="/">
       Movie Time
       </Link>{' '}
       {new Date().getFullYear()}
@@ -51,9 +51,9 @@ const Footer = () => {
       <footer className={classes.footer}>
         <Container  style={{ color: 'white' }}>
             <Copyright />
-            <FacebookIcon />
-            <TwitterIcon />
-            <InstagramIcon/>
+            <FacebookIcon/>
+            <TwitterIcon/>
+            <InstagramIcon />
         </Container>
       </footer>
     </div>
