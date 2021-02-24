@@ -17,7 +17,7 @@ module.exports.createUser = async (request, response) => {
     const { firstName,lastName,phoneNumber,numberOfTickets,status} = request.body;
     await User.create({ firstName,lastName,phoneNumber,numberOfTickets,status})
         .then(person=> {
-            Movie.findOneAndUpdate({'_id':'6033d042f0a1912e3ce0e8f5'},{ 
+            Movie.findOneAndUpdate({'_id':'6034e7564bfb5d28fc7b0cbe'},{ 
                 $push:{Buyers: person}
              }).catch(err => response.json(err));
              return response.json(person)
@@ -39,4 +39,10 @@ module.exports.allCategories=(request, response) =>{
     Category.find().populate('Movies')
     .then(categories=>response.json(categories))
     .catch(err=>response.status(400).json(err));
+}
+
+module.exports.getMovie = (request, response) => {
+    Movie.findOne({_id:request.params.id}).populate('Buyers')
+        .then(movie => response.json(movie))
+        .catch(err => response.json(err))
 }

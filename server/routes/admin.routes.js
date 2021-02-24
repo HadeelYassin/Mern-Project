@@ -10,4 +10,5 @@ module.exports = app => {
   app.post("/api/createcategory",User.createCategory);
   app.get("/api/getAllMovies",Movie.allMovies);
   app.get("/api/getAllCategories",Movie.allCategories);
+  app.get("/api/getMovie/:id",Movie.getMovie);
 }
