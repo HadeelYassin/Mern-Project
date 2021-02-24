@@ -5,7 +5,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import VerticalTicketRip from '@mui-treasury/components/rip/verticalTicket';
 import { useVerticalRipStyles } from '@mui-treasury/styles/rip/vertical';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import { red } from '@material-ui/core/colors';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
@@ -126,16 +126,16 @@ const theme = createMuiTheme({
   },
 });
 
-const ColorButton = withStyles((theme) => ({
-  root: {
-    color: 'white',
-    backgroundColor: 'red',
-    width: '35%',
-    fontFamily: 'sans-serif',
-    margin:'auto',
+// const ColorButton = withStyles((theme) => ({
+//   root: {
+//     color: 'white',
+//     backgroundColor: 'red',
+//     width: '35%',
+//     fontFamily: 'sans-serif',
+//     margin: 'auto',
 
-  },
-}))(Button);
+//   },
+// }))(Button);
 
 
 export const BuyTicket = () => {
@@ -213,18 +213,12 @@ export const BuyTicket = () => {
               label="Total Price"
               variant="outlined"
             />
-            <ColorButton variant="outlined" color="primary" className={classes.margin} id="mui-theme-provider-outlined-input">
-              Book Now
-      </ColorButton>
-<br></br>
-<br></br>
-
-     
-      {/* <ColorButton variant="outlined"  className={classes.margin} id="mui-theme-provider-outlined-input">
-      Back
-      </ColorButton> */}
-      </ThemeProvider>
-      <Link href='/'>back</Link>
+            <br></br>
+            <br></br>
+            <br></br>
+            <button id='btn'>Book Now</button>
+          </ThemeProvider>
+          {/* <Link href='/'>back</Link> */}
         </form>
       </div>
     </Card>
