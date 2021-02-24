@@ -9,19 +9,22 @@ const MoviesAdmin = () => {
         backgroundColor: '#8c8787',
         width:"100%"
     }
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState("No categore");
     useEffect(()=>{
         axios.get('http://localhost:8000/api/getAllCategories')
             .then(res=>{
               setCategories(res.data);
             });
     },[])
+    const categorie=(newCategoory)=>{
+        setCategories(newCategoory);
+    }
     return (
         <div style={Style} >
             <br/>
             <br/>
             <br/>
-            <AddCategory />
+            <AddCategory onNewCategory={categorie}/>
             <AddMovie categories={categories}/>
             <HeaderAdmin/>
             

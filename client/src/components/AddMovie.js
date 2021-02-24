@@ -95,14 +95,10 @@ const AddMovie = (props) => {
             id: 'demo-simple-select-label',
           }}>
             {categories.map((category, idx)=>{
-                return <MenuItem   key={idx} value={category._id}>{category.name}</MenuItem>
+                return <MenuItem   key={idx} value={category._id}>{props.categories}</MenuItem>
             })}
         </Select>
-        <Select>
-          {props.categories.map((category, indx)=>{
-            return <MenuItem>{category.name}</MenuItem>
-          })}
-        </Select>
+       
       </Grid>
       <Grid item xs={12}><TextField id="standard-multiline-flexible" onChange={(e)=>setDescription(e.target.value)} label="Description" multiline fullWidth rowsMax={10} className={classes.textField}/></Grid>
       <Grid item xs={12}><TextField id="standard-basic" onChange={(e)=>setImageUrl(e.target.value)} label="Poster url" fullWidth className={classes.textField}/></Grid>
