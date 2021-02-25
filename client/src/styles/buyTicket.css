@@ -2,3 +2,12 @@ body{
   background-image: url("image.png");
 }
    
+#btn{
+  color: white;
+  background-color: #e50914;
+  width : 35%;
+  height: 13%;
+  font-family: sans-serif;
+  margin: auto;
+  border-radius: 4px;
+}
