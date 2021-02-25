@@ -11,6 +11,10 @@ const Home = () => {
     }
     const [category, setCategory] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const [selectedcategory,setSelectedCategory]=useState("");
+    const changeCategory=(id)=>{
+        setSelectedCategory(id)
+    }
     useEffect(()=>{
         axios.get('http://localhost:8000/api/getAllCategories')
             .then(res=>{
@@ -21,8 +25,8 @@ const Home = () => {
     return (
         <div style={Style}>
             <Video/>
-            <MoviesList/>
-            {loaded &&<Header categories={category} />}    
+            <MoviesList selectedategory={selectedcategory}/>
+            {loaded &&<Header categories={category} changeCategory={changeCategory} />}    
             <Footer/>
         </div>
     )

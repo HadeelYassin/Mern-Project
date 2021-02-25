@@ -13,6 +13,7 @@ import {
 import { makeStyles } from '@material-ui/core';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select'
 
 const options = [
   'None',
@@ -39,6 +40,10 @@ const Header = (props) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    const [categoryId,setCategoryId]=useState("");
+    const callFunction=(e)=>{
+    props.changeCategory(e.target.value);
+    }
   
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -118,9 +123,16 @@ const Header = (props) => {
           },
         }}
       >
-         {props.categories.map((category, idx)=>{
-                return <MenuItem   key={idx} >{category.name}</MenuItem>
+         <Select  onChange={callFunction} fullWidth inputProps={{
+            name: 'category',
+            id: 'demo-simple-select-label',
+           
+          }}>
+            {props.categories.map((category, idx)=>{
+                return <MenuItem   key={idx} value={category._id}>{category.name}</MenuItem>
             })}
+        </Select>
+        
       </Menu>
       {/* <NavItem>
               <NavLink href="/admin" style={{color:'whitesmoke'}}>Login</NavLink>

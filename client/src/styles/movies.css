@@ -23,7 +23,7 @@ main {
     overflow: hidden;
     position: relative;
     margin: 1rem;
-    width: 220px;
+    width: 230px;
     
 }
 
@@ -64,6 +64,7 @@ main {
     background: rgba(0, 0, 0, 0.8);
     color: white;
     font-size: 16px;
+    /* text-align: center; */
     font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif; 
     position: absolute;
     height: 100%;

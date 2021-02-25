@@ -31,7 +31,7 @@ module.exports.createCategory = (request, response) => {
 }
 
 module.exports.allMovies= (request, response) =>{
-    Movie.find().populate('Buyers')
+    Movie.find().sort({showingDate: 'ascending'}).populate('Buyers')
     .then(movies=>response.json(movies))
     .catch(err=>response.status(400).json(err));
 }
@@ -55,5 +55,10 @@ module.exports.getMovie = (request, response) => {
 module.exports.deleteCategory = (request, response) => {
     Category.deleteOne({ _id: request.params.id })
         .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
+}
+module.exports.getOneCategory= (request, response) => {
+    Category.findOne({_id:request.params.id})
+    .then(category => response.json(category))
         .catch(err => response.json(err))
 }
