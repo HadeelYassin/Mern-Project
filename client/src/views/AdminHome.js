@@ -11,6 +11,7 @@ const AdminHome = () => {
     return (
         
         <div style={Style}>
+            
             <Video/>
             <MoviesList/>
             <HeaderAdmin/>    

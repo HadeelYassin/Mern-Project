@@ -1,7 +1,7 @@
 import React,{ useEffect, useRef, useState } from 'react'
 import { navigate } from '@reach/router';
 import axios from "axios";
-import Logo from '../images/logo.png'
+import Logo from '../images/cinema.svg'
 import {
     Collapse,
     Navbar,
@@ -45,9 +45,10 @@ const HeaderAdmin = () => {
     }, [])
 
     const imageStyle={
-        padding: '12px 15px',
+        // marginLeft:20,
+        // marginRight:20,
         width:'100px',
-        height:'30px'
+        height:'40px'
     }
     const style={
         transition: '2s ease',

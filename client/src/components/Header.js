@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Button from '@material-ui/core/Button';
-import Logo from '../images/logo.png'
+import Logo from '../images/cinema.svg'
 import {
     Collapse,
     Navbar,
@@ -71,11 +71,12 @@ const Header = (props) => {
         }
     }, [])
     
-  
     const imageStyle={
-        padding: '12px 15px',
+        // marginRight:20,
+        // marginLeft:20,
         width:'100px',
-        height:'70px'
+        height:'40px'
+        
     }
     const style={
         transition: '1s ease',
@@ -134,9 +135,8 @@ const Header = (props) => {
         </Select>
         
       </Menu>
-      {/* <NavItem>
-              <NavLink href="/admin" style={{color:'whitesmoke'}}>Login</NavLink>
-            </NavItem> */}
+      <NavItem>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>

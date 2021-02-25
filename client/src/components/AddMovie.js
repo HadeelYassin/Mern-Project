@@ -7,6 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
+
 import axios from 'axios';
 
 
@@ -87,6 +88,7 @@ const AddMovie = (props) => {
     <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
       <Grid item xs={12} ><TextField onChange={(e)=>setTitle(e.target.value)} id="standard-basic" label="Title" fullWidth className={classes.textField}/></Grid>
       <Grid item xs={12}><InputLabel   htmlFor="demo-simple-select-label">Category</InputLabel>
+      
       <Select onChange={(e)=>setSelectedCategory(e.target.value)} value={selectedCategory} fullWidth inputProps={{
             name: 'category',
             id: 'demo-simple-select-label',

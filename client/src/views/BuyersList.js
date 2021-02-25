@@ -10,30 +10,31 @@ const BuyersList = () => {
         width:"100%",
         minHeight:"800px",
     }
-     // const [loaded, setLoaded] = useState(false);
-    //useEffect((e)=>{
-     //   axios.get('http://localhost:8000/api/admin')
-      //          .then(res=> {if(res.data.cookie == !null)
-       //             { 
-         //           setLoaded(true); 
-         //          }
-        //            else{
-         //               navigate('/admin');
-         //           }
+  //    const [loaded, setLoaded] = useState(false);
+  //  useEffect((e)=>{
+  //     axios.get('http://localhost:8000/api/admin')
+     //           .then(res=> {if(res.data.role == !null)
+   //                { 
+       //            setLoaded(true); 
+         //        }
+           //        else{
+            //            navigate('/admin');
+             //      }
 
-         //       }
-         //       )  // If successful, do something with the response. 
-         //   .catch(err=>{
-         //    console.log("error");
-        //    })
-       // }, [])
+               // }
+              //)  // If successful, do something with the response. 
+        //   .catch(err=>{
+          // console.log("error");
+     //   })
+      // }, [])
     
     return (
         <div style={Style} >
             <br/>
             <br/>
-            <UsersTable  />
             <HeaderAdmin />
+            <UsersTable  />
+           
             <Footer/>
         </div>
     )

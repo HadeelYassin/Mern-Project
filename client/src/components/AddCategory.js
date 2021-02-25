@@ -61,6 +61,7 @@ const AddCategory = (props) => {
             <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
                 <Grid item xs={12} ><TextField value={name} onChange={(e)=>setName(e.target.value)} id="standard-basic" label="Add Category" className={classes.textField}/></Grid>
                 <Grid item xs={12}><button type="submit"className="buy">Add</button></Grid>
+               
             </form>
             </Container>
         </div>
