@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 300,
+    width: 200,
   },
   title:{
     ...theme.typography.button,
@@ -65,7 +65,6 @@ const AddMovie = (props) => {
   },[])
   const classes = useStyles();
   
-
   const onSubmitHandler = e => {
     e.preventDefault();
     axios.post('http://localhost:8000/api/createmovie', {
@@ -85,7 +84,7 @@ const AddMovie = (props) => {
   return (
     
     <div className="containerr">
-      
+      <div>{ props.categories}</div>
       <Container  fixed maxWidth="sm" >
       <div className={classes.title} >{"Add Movie"}</div>
     <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>

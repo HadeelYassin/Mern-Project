@@ -22,6 +22,7 @@
     "express": "^4.17.1",
     "final-form": "^4.20.1",
     "mongoose": "^5.11.17",
+    "mongoose-date-format-v2": "^1.2.2",
     "nuka-carousel": "^4.7.5",
     "react": "^17.0.1",
     "react-awesome-slider": "^4.1.0",

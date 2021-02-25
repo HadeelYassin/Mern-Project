@@ -1,14 +1,12 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import BuyTicketsComponent from '../components/BuyTicketsComponent'
+import BuyTicket from '../components/BuyTicket'
 
-const BuyTicket = () => {
+const BuyTicketView = () => {
     return (
         <div>
-            <BuyTicketsComponent/>
-          
-            <Footer/>
+            <BuyTicket/>
         </div>
     )
 }
