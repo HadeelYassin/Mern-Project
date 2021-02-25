@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import cx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -11,6 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import '../styles/buyTicket.css';
 import axios from 'axios';
+import { navigate } from '@reach/router';
 
 
 const lightColor = 'white';
@@ -139,7 +140,7 @@ const ColorButton = withStyles((theme) => ({
 }))(Button);
 
 
-export const BuyTicket = () => {
+export const BuyTicket = (props) => {
   const classes = useStyles2();
   const styles = useStyles();
   const ripStyles = useVerticalRipStyles({
@@ -152,15 +153,18 @@ export const BuyTicket = () => {
   const[phoneNumber, setPhoneNumber] = useState("")
   const[numberOfTickets, setNumberOfTickets] = useState("")
   const [errors, setErrors] = useState([])
-  const[errors1,setErrors1] = useState({
-    fname:{
-      type:'required'
-    },
-    lname:{
-      type:'required'
-    }
-  })
-
+  const [movie, setMovie] = useState({})
+  const  id = props.id
+  
+    
+    useEffect(()=>{
+      axios.get('http://localhost:8000/api/movie/'+ id)
+        .then(res=>{
+          setMovie(res.data);
+console.log(res.data)
+        });
+    },[])
+  
   const onSubmitHandler = e => {
     e.preventDefault();
     axios.post('http://localhost:8000/api/createuser', {
@@ -168,8 +172,9 @@ export const BuyTicket = () => {
       lastName,
       phoneNumber,
       numberOfTickets,
+      id
     })
-    .then()
+    .then(()=>navigate('/login/hi'))
     .catch(err =>{
       const errorResponse = err.response.data.errors; // Get the errors from err.response.data
       const errorArr = []; // Define a temp error array to push the messages in
@@ -184,15 +189,16 @@ export const BuyTicket = () => {
 
 
   return (
+    
     <Card className={styles.card} elevation={0}>
+      {movie.title}
       <div className={cx(styles.left, styles.moveLeft)}>
         <CardMedia
           className={styles.media}
-          image={
-            'http://image.tmdb.org/t/p/w500//ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg'
-          }
+          image={movie.imageUrl}
         />
       </div>
+      
       <VerticalTicketRip
         classes={{
           ...ripStyles,
@@ -202,17 +208,18 @@ export const BuyTicket = () => {
       />
       <div className={cx(styles.right, styles.moveRight)}>
         <div className={styles.labelDate}>
-          <h2 className={styles.heading}>FRIDAY, FEBRUARY 23</h2>
+          <h2 className={styles.heading}>{movie.showingDate}</h2>
         </div>
         <div className={styles.labelTitle}>
-          <h2 className={styles.heading}>Avengers</h2>
-          <h5 className={styles.category}>Category</h5>
+          <h2 className={styles.heading}>{movie.title}</h2>
+          <h5 className={styles.category}>{movie.category}</h5>
         </div>
         <form className={classes.root} Validate onSubmit={onSubmitHandler}>
           <ThemeProvider theme={theme}>
           {
-                            errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)
-                      }
+           errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)
+            }
+                      
             <TextField
               className={classes.margin}
               label="First Name"
@@ -220,14 +227,11 @@ export const BuyTicket = () => {
               id="mui-theme-provider-outlined-input"
               onChange={(e)=>setFirstName(e.target.value)}
             />
-            {errors.fname && errors.fname.type === "required" && (
-  <div className="error">You must enter your name</div>
-)}
             <TextField
               disabled
               className={classes.margin}
               id="mui-theme-provider-outlined-input"
-              label="Ticket Price"
+              label={movie.price}
               variant="outlined"
             />
             <TextField
@@ -256,7 +260,7 @@ export const BuyTicket = () => {
               disabled
               className={classes.margin}
               id="mui-theme-provider-outlined-input"
-              label="Total Price"
+              label={numberOfTickets*movie.price}
               variant="outlined"
             />
             <button variant="outlined" color="primary" className={classes.margin} id="mui-theme-provider-outlined-input">

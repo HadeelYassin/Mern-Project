@@ -1,7 +1,8 @@
 import '../styles/movies.css';
 import axios from "axios";
 import 'react-slice';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,navigate } from 'react';
+import { Link } from '@reach/router';
 
 const MoviesList = () => {
 	const [movies, setMovies] = useState([]);
@@ -34,10 +35,9 @@ const MoviesList = () => {
 						<iframe src={movie.trailerUrl} height="100%" width="100%" title="W3Schools Free Online Web Tutorials"></iframe>
 						<p>{movie.description}</p>
 					</div>
-					
-
-					<button className="buy">Book Now</button>
-
+					<button className="buy"><Link  to={"/tickets/"+ movie._id} style={{color:"white"}}>Book Now</Link></button>
+					{/* <button className="buy" onClick={()=>navigate("/tickets"+movie._id)}>Book Now</button> */}
+					{/* onClick={ (e)=>{deleteAuthor(getAuthorId(author))} } */}
 				</div>
 			</div>
 			)}
