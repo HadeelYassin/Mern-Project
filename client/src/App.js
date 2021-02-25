@@ -6,7 +6,7 @@ import BuyersList from './views/BuyersList';
 import './styles/movies.css';
 import React, { useState, useEffect } from 'react';
 import MoviesAdmin from './views/MoviesAdmin'
-import BuyTicketView from './views/BuyTicketView';
+import BuyTicket from './components/BuyTicket';
 import AdminHome from './views/AdminHome';
 
 
@@ -16,10 +16,10 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Home path="/"/>
         <Main path="/admin"/>
         <AdminHome path="/login/hi"/>
-        <BuyTicketView path="/tickets"/>
-        <Home path="/"/>
+        <BuyTicket path="/tickets/:id"/>
         <BuyersList path="/admin/info"/>
        <MoviesAdmin path="/admin/movies"/>
       </Router>

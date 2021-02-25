@@ -66,7 +66,6 @@ const Header = (props) => {
         }
     }, [])
     
-  
     const imageStyle={
         padding: '12px 15px',
         width:'100px',
