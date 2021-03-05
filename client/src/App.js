@@ -7,7 +7,7 @@ import './styles/movies.css';
 import React, { useState, useEffect } from 'react';
 import MoviesAdmin from './views/MoviesAdmin'
 import BuyTicket from './components/BuyTicket';
-import AdminHome from './views/AdminHome';
+//import AdminHome from './views/AdminHome';
 
 
 
@@ -18,7 +18,7 @@ function App() {
       <Router>
         <Home path="/"/>
         <Main path="/admin"/>
-        <AdminHome path="/login/hi"/>
+        {/* <AdminHome path="/login/hi"/> */}
         <BuyTicket path="/tickets/:id"/>
         <BuyersList path="/admin/info"/>
        <MoviesAdmin path="/admin/movies"/>

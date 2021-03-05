@@ -43,6 +43,7 @@ const Header = (props) => {
     const [categoryId,setCategoryId]=useState("");
     const callFunction=(e)=>{
     props.changeCategory(e.target.value);
+    console.log(e.target.value);
     }
   
     const handleClick = (event) => {

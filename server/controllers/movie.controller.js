@@ -19,7 +19,8 @@ module.exports.createUser = async (request, response) => {
         .then(person=> {
             Movie.findOneAndUpdate({'_id':id},{ 
                 $push:{Buyers: person}
-             }).catch(err => response.json(err));
+             })
+             .catch(err => response.json(err));
              return response.json(person)
         })
         .catch(err => response.status(400).json(err))
@@ -64,8 +65,9 @@ module.exports.deleteCategory = (request, response) => {
         .then(deleteConfirmation => response.json(deleteConfirmation))
         .catch(err => response.json(err))
 }
-module.exports.getOneCategory= (request, response) => {
-    Category.findOne({_id:request.params.id})
+module.exports.getOneCategory=(request, response)=>{
+    Category.findOne({_id:request.params.id}).populate('Movies')
     .then(category => response.json(category))
-        .catch(err => response.json(err))
+    .catch(err => response.json(err))
 }
+

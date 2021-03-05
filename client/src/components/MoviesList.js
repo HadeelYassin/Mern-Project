@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import 'react-slice';
 import { Link } from '@reach/router';
+
 const MoviesList = (props) => {
 	const [movies, setMovies] = useState([]);
 	
@@ -11,12 +12,14 @@ const MoviesList = (props) => {
 			axios.get('http://localhost:8000/api/getAllMovies')
 			.then(res=>{
 			  setMovies(res.data);
+			  console.log("this is all movies")
 			});
 		}
 		else{
 			axios.get('http://localhost:8000/api/getCategory/'+props.selectedategory)
 			.then(res=>{
-				setMovies(res.data.Movies)
+				setMovies(res.data.Movies);
+				console.log(res.data.Movies)
 			}
 			  );
 		}

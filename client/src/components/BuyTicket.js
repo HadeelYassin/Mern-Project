@@ -24,9 +24,9 @@ const useStyles = makeStyles(({ palette, breakpoints }) => ({
     background: 'none',
     display: 'flex',
     margin: 'auto',
-    marginTop: 80,
+    marginTop: 60,
     maxWidth: '80%',
-    height: 450,
+    height: 350,
     filter: 'drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3))',
     '& $moveLeft, $moveRight': {
       transition: '3s',
@@ -46,7 +46,7 @@ const useStyles = makeStyles(({ palette, breakpoints }) => ({
   left: {
     borderTopLeftRadius: borderRadius,
     borderBottomLeftRadius: borderRadius,
-    flexBasis: '25%',
+    flexBasis: '30%',
     backgroundColor: lightColor,
 
   },
@@ -62,30 +62,31 @@ const useStyles = makeStyles(({ palette, breakpoints }) => ({
     alignItems: 'center',
     textAlign: 'center',
     background: 'rgba(255, 255, 255, 0.4)',
-    fontFamily: 'sans-serif',
+    // fontFamily: 'sans-serif',
+
 
   },
   labelDate: {
     backgroundColor: 'black',
     color: 'white',
     width: '90%',
-    height: '10%',
+    height: '15%',
     margin: 'auto',
     padding: 7,
     borderBottomRightRadius: borderRadius,
     borderBottomLeftRadius: borderRadius,
-    fontFamily: 'sans-serif',
+    // fontFamily: 'sans-serif',
   },
 
   heading: {
-    fontSize: 32,
-    fontFamily: 'sans-serif',
-  },
-  category: {
     fontSize: 24,
-    fontFamily: 'sans-serif',
-
+    // fontFamily: '',
   },
+  // category: {
+  //   fontSize: 24,
+  //   fontFamily: 'sans-serif',
+
+  // },
   moveLeft: {},
   moveRight: {},
 }));
@@ -162,7 +163,8 @@ export const BuyTicket = (props) => {
       axios.get('http://localhost:8000/api/getMovie/'+props.id)
         .then(res=>{
           setMovie(res.data);
-console.log(res.data)
+        console.log(res.data.Buyers)
+
         });
     },[])
   
@@ -212,21 +214,27 @@ console.log(res.data)
       />
       <div className={cx(styles.right, styles.moveRight)}>
         <div className={styles.labelDate}>
-          <h2 className={styles.heading}><h2>{
-					movie.showingDate}
-					</h2></h2>
+          <h2 className={styles.heading} ><h2>{movie.title}
+					</h2>
+          </h2>
         </div>
         <div className={styles.labelTitle}>
-         <div>
-          <h2 className={styles.heading}>{movie.title}</h2>
-          <h5 className={styles.category}>{movie.category}</h5>
+          <div>
+          {/* <h2 className={styles.heading}> {movie.showingDate}wingDate.sli </h2> */}
+           
           </div>
-        </div>
-        <form className={classes.root} Validate onSubmit={onSubmitHandler}>
-          <ThemeProvider theme={theme}>
+         <div>
+          
+          {/* <h5 className={styles.category}>{movie.category}</h5> */}
           {
            errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)
             }
+          </div>
+        </div>
+        <form className={classes.root} Validate onSubmit={onSubmitHandler}>
+       
+          <ThemeProvider theme={theme}>
+         
                       
             <TextField
               className={classes.margin}
@@ -239,7 +247,7 @@ console.log(res.data)
               disabled
               className={classes.margin}
               id="mui-theme-provider-outlined-input"
-              label={movie.price}
+              label="Ticket Price" value={movie.price} defaultValue="0"
               variant="outlined"
             />
             <TextField
@@ -268,7 +276,8 @@ console.log(res.data)
               disabled
               className={classes.margin}
               id="mui-theme-provider-outlined-input"
-              label={numberOfTickets*movie.price}
+              // label={numberOfTickets*movie.price}
+              label="Total Price" value={numberOfTickets*movie.price} defaultValue="0"
               variant="outlined"
             />
             <br></br>

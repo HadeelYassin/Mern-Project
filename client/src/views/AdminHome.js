@@ -1,23 +1,23 @@
-import React from 'react'
-import Footer from '../components/Footer'
-import Video from '../components/Video';
-import MoviesList from '../components/MoviesList';
-import HeaderAdmin from '../components/HeaderAdmin';
+// import React from 'react'
+// import Footer from '../components/Footer'
+// import Video from '../components/Video';
+// import MoviesList from '../components/MoviesList';
+// import HeaderAdmin from '../components/HeaderAdmin';
 
-const AdminHome = () => {
-    const Style={
-        backgroundColor: '#202020'
-    }
-    return (
+// const AdminHome = () => {
+//     const Style={
+//         backgroundColor: '#202020'
+//     }
+//     return (
         
-        <div style={Style}>
+//         <div style={Style}>
             
-            <Video/>
-            <MoviesList/>
-            <HeaderAdmin/>    
-            <Footer/>
-        </div>
-    )
-}
+//             <Video/>
+//             <MoviesList/>
+//             <HeaderAdmin/>    
+//             <Footer/>
+//         </div>
+//     )
+// }
 
-export default AdminHome
+// export default AdminHome

@@ -13,7 +13,5 @@ module.exports = app => {
   app.get("/api/getAllMovies",Movie.allMovies);
   app.get("/api/getAllCategories",Movie.allCategories);
   app.get("/api/getMovie/:id",Movie.getMovie);
-  app.delete('/api/movie/:id', Movie.deleteMovie);
-  app.delete('/api/category/:id', Movie.deleteCategory);
   app.get('/api/getCategory/:id',Movie.getOneCategory);
 }

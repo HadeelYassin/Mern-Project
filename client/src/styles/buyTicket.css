@@ -1,7 +1,11 @@
+
+
 body{
   background-image: url("image.png");
+  
 }
-   
+#font{
+}  
 #btn{
   color: white;
   background-color: #e50914;
@@ -10,4 +14,5 @@ body{
   font-family: sans-serif;
   margin: auto;
   border-radius: 4px;
+  
 }
